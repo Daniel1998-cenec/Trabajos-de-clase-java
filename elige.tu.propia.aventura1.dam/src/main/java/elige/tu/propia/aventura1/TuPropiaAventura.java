@@ -3,8 +3,8 @@ package elige.tu.propia.aventura1;
 import java.util.Scanner;
 
 public class TuPropiaAventura {
-	
-public static void main(String[] args) {
+
+	public static void main(String[] args) {
 		// estoy aprendiendo usar switch que es "parecido" a if.
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Escribe h si eres hombre, m si eres mujer y n si eres neutro");
@@ -85,9 +85,8 @@ public static void main(String[] args) {
 					+ " pero se carga a " + nAlumnos * 60 / 100 + "\n\t1 - Los " + nAlumnos
 					+ " alumnos que mueren se tranforma en zombi\n"
 					+ "\t2 - Me doy cuenta en el fondo de mi ser que tengo un super poder...\n"
-					+ "\t3 - Mato al mono a puñetazos\n"
-					+ "\t4 - El mono sale corriendo porque ve una cucaracha");
-			
+					+ "\t3 - Mato al mono a puñetazos\n" + "\t4 - El mono sale corriendo porque ve una cucaracha");
+
 			opcion = Byte.parseByte(scan.nextLine());
 			if (opcion == 1) {
 				System.out.println("Los " + nAlumnos
