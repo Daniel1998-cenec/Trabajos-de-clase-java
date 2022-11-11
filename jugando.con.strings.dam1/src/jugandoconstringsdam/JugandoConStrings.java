@@ -47,9 +47,14 @@ public class JugandoConStrings {
 				System.out.println("Voy a Mimificar un texto");
 				//hola
 				//hmiomilmiami
+				String mimificado="";
 				for (byte i=0;i<texto.length();i++) {
-					System.out.print(texto.charAt(i)+"mi");
+					//1 - En vez de imprimir, concatenar en la variable mimificado
+					mimificado+=(texto.charAt(i)+"mi"); //System.out.print(texto.charAt(i)+"mi");
 				}
+				//2 - Imprimir la variable mimificado
+				System.out.println(mimificado);
+				//3- Hacer otro for que a partir de la variable mimificado,imprima la palabra original
 				System.out.println();
 				break;
 			case 'd':
