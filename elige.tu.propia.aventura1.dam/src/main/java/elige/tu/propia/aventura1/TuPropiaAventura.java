@@ -7,11 +7,15 @@ public class TuPropiaAventura {
 	public static void main(String[] args) {
 		// estoy aprendiendo usar switch que es "parecido" a if.
 		Scanner scan = new Scanner(System.in);
+		
 		System.out.println("Escribe h si eres hombre, m si eres mujer y n si eres neutro");
+		
 		String respuesta = scan.nextLine();
+		
 		// Aquí estamos haciendo switch de repuesta.
 		char genero = 'm'; // todas existen dentro de su ambito "{}" es mejor ponerlo fuera de las llaves
 							// no dentro.
+		
 		switch (respuesta) {
 		case "h": // Si se cumple algunos de los h, hombre H, Hombre es H.
 		case "hombre":
@@ -46,7 +50,9 @@ public class TuPropiaAventura {
 				+ "¿Qué haces?\n\t1 - Le tiras tu monitor a la cabeza"
 
 				+ "\n\t2 - Le dices \"Juan Carlos\",¿Dónde te habías metido?" + "\n\t3 - Me escondo");
+		
 		// /n:Punto aparte. \t1: Sirve para nombrar.
+		
 		byte opcion = Byte.parseByte(scan.nextLine());
 
 		// Aquí estamos haciendo un switch de opciones

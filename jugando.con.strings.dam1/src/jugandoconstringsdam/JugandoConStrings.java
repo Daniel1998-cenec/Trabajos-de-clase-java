@@ -10,13 +10,21 @@ public class JugandoConStrings {
 		char opcion = '-';
 		String texto="";
 		while (opcion != 's') {
-			System.out.println("Elige una accion:" + "\n\te - Escribir texto" + "\n\ti - Invertir el texto"
-					+ "\\n\tc - Codificar texto" + "\n\tf - Mimificar un texto" + "\n\td - Decodificar el texto"
-					+ "\n\tM - Cambiar a todo mayúsculas" + "\n\tm - Cambiar a todo minúsculas"
-					+ "\n\tn - Poner mayúsculas solo la primera letra" + "\n\ta - Codificar con números aleatorios"
+			System.out.println("Elige una accion:" 
+		+ "\n\te - Escribir texto" + "\n\ti - Invertir el texto"			
+		+ "\\n\tc - Codificar texto" + "\n\tf - Mimificar un texto" 
+		+ "\n\td - Decodificar el texto"
+		+ "\n\tM - Cambiar a todo mayúsculas" + "\n\tm - Cambiar a todo minúsculas"
+		+ "\n\tn - Poner mayúsculas solo la primera letra" 
+		+ "\n\ta - Codificar con números aleatorios"+"\n\t0 - Dime si el texto tiene números"
+		
 					+ "\n\ts - Salir");
 			opcion = sc.nextLine().charAt(0);
 			switch (opcion) {
+			case '0':
+				System.out.println("¿Tiene el texto número?"+(texto.contains("1")||texto.contains("2")||texto.contains("3")||texto.contains("4")||
+						texto.contains("5")||texto.contains("6")||texto.contains("7")||texto.contains("8")||texto.contains("9")||texto.contains("0")));
+				break;
 			case 'e':
 				System.out.println("voy escribir un texto");
 				texto=sc.nextLine();

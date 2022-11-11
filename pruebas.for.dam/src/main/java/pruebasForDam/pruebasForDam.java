@@ -11,6 +11,7 @@ public class pruebasForDam {
 		System.out.println("Dime cuantas letras aleatorias quieres");
 		byte nLetras=Byte.parseByte(sc.nextLine());
 		Random aleatorio=new Random();
+		
 		for(byte i=0; i<nLetras; i++) {
 			System.out.println((char)aleatorio.nextInt(97,123)); //TablaAsci.
 		}
