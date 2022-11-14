@@ -9,8 +9,8 @@ public class JugandoConStrings {
 		Scanner sc = new Scanner(System.in);
 		char opcion = '-';
 		String texto = "";
-		String mimificado="";
-		String codificado="";
+		String mimificado = "";
+		String codificado = "";
 		while (opcion != 's') {
 			System.out.println("Elige una accion:" + "\n\te - Escribir texto" + "\n\ti - Invertir el texto"
 					+ "\n\tc - Codificar texto" + "\n\tf - Mimificar un texto" + "\n\td - Decodificar el texto"
@@ -44,39 +44,40 @@ public class JugandoConStrings {
 				break;
 			case 'c':
 				System.out.println("Voy a codificar un texto");
-				for (byte i=0;i<texto.length();i++) {
-					codificado+=(char)(texto.charAt(i)+10);
+				for (byte i = 0; i < texto.length(); i++) {
+					codificado += (char) (texto.charAt(i) + 10);
 				}
 				System.out.println(codificado);
-				
+
 				break;
 			case 'f':
 				System.out.println("Voy a Mimificar un texto");
-				//hola
-				//hmiomilmiami
-				
-				for (byte i=0;i<texto.length();i++) {
-					//1 - En vez de imprimir, concatenar en la variable mimificado
-					
-					mimificado+=(texto.charAt(i)+"mi"); //System.out.print(texto.charAt(i)+"mi");
+				// hola
+				// hmiomilmiami
+
+				for (byte i = 0; i < texto.length(); i++) {
+					// 1 - En vez de imprimir, concatenar en la variable mimificado
+
+					mimificado += (texto.charAt(i) + "mi"); // System.out.print(texto.charAt(i)+"mi");
 				}
-				//2 - Imprimir la variable mimificado
-				
+				// 2 - Imprimir la variable mimificado
+
 				System.out.println(mimificado);
-				
+
 				break;
 			case 'd':
 				System.out.println("Voy decodificar el texto");
-				//3- Hacer otro for que a partir de la variable mimificado,imprima la palabra original
-				String desmimificar=" "; 
-				for (int i=0; i<mimificado.length(); i=(i+3)) {
+				// 3- Hacer otro for que a partir de la variable mimificado,imprima la palabra
+				// original
+				String desmimificar = " ";
+				for (int i = 0; i < mimificado.length(); i = (i + 3)) {
 					System.out.print(mimificado.charAt(i));
 				}
 				System.out.println();
-				
-				mimificado=mimificado.replace("mi ","");
+
+				mimificado = mimificado.replace("mi ", "");
 				System.out.println(mimificado);
-				
+
 				break;
 			case 'M':
 				System.out.println("Voy a cambiar a todo mayúsculas");
@@ -90,14 +91,23 @@ public class JugandoConStrings {
 				break;
 			case 'n':
 				System.out.println("Voy a poner mayúsculas solo la primera letra");
-				System.out.print((""+texto.charAt(0)).toUpperCase());
-				for (byte i=1;i<texto.length();i++) {
-					System.out.print((""+texto.charAt(i)).toLowerCase());
+				System.out.print(("" + texto.charAt(0)).toUpperCase());
+				for (byte i = 1; i < texto.length(); i++) {
+					System.out.print(("" + texto.charAt(i)).toLowerCase());
 				}
 				System.out.println();
 				break;
 			case 'a':
 				System.out.println("Voy a codificar con números aleatorios");
+				//Haz aqui lo mismo q la opcion c
+				//pero ademas de codificar entre letra y letra introduce
+				//una letra a y z aleatoria.
+				//Eje, si escribimos en texto: acaba, la opcion c daria:
+				//kmklk
+				//Esta opción, además de eso, entre letra y letrainserta
+				//otra letra aleatoria. Eje:
+				//kvmxkrlqku
+				
 				break;
 			case 's':
 				System.out.println("Te me calmas, vete usted tranquilo con Dios");
