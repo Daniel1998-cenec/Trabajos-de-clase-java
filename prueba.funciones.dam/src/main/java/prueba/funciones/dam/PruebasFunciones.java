@@ -10,15 +10,15 @@ public class PruebasFunciones {
 		byte pisos = Byte.parseByte(sc.nextLine());
 		byte i;
 		for (i = 0; i < pisos; i++) {
-			for (byte j = 0; j < (i + 1); j++) {
-				System.out.println("@");
+			for (byte j = 0; j < i; j++) {
+				System.out.print("@");
 			}
 			System.out.println();
 		}
 		
 		for (byte p= (byte)(pisos - 1); p > 0; p--) {
 			for (byte j=0; j< (i + 1); j++) {
-				System.out.println("@");
+				System.out.print("@");
 			}
 			System.out.println();
 
