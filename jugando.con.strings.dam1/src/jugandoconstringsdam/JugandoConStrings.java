@@ -14,6 +14,7 @@ public class JugandoConStrings {
 		String codificado = "";
 		String descodificado = "";
 		Random r= new Random();
+		
 
 		while (opcion != 's') {
 			System.out.println("Elige una accion:" + "\n\te - Escribir texto" + "\n\ti - Invertir el texto"
@@ -125,12 +126,12 @@ public class JugandoConStrings {
 				// otra letra aleatoria. Eje:
 				// kvmxkrlqku
 				
-				int numeroAleatorio=r.nextInt(123-97);
 				
 				for (byte i = 0; i < texto.length(); i++) {
-					codificado += (char) (texto.charAt(i) + numeroAleatorio);
-					char letraExtra=(char) (97+numeroAleatorio);
-					codificado+=letraExtra;
+				
+					codificado += (char)(texto.charAt(i) + 0);
+					
+					codificado+= (char)(r.nextInt(97,123));	
 				}
 				
 				System.out.println(codificado);
