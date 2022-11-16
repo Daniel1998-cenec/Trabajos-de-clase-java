@@ -15,25 +15,25 @@ public class PruebasFunciones {
 			}
 			System.out.println();
 		}
-		
-		for (byte p= (byte)(pisos - 1); p > 0; p--) {
-			for (byte j=0; j< (i + 1); j++) {
+
+		for (byte p = (byte) (pisos - 1); p > 0; p--) {
+			for (byte j = 0; j < (i + 1); j++) {
 				System.out.print("@");
 			}
 			System.out.println();
-
-			/*
-			 * System.out.println("Dime un número. y te digo si es primo"); long numero =
-			 * Long.parseLong(sc.nextLine()); boolean esPrimo = true; long i; for (i=2; i <
-			 * numero; i++) { if (numero % i == 0) { System.out.println("Lo divide "+i);
-			 * esPrimo = false; break; //Se usa break cuando para ahorrate tiempo } for(int
-			 * j=0;j<10;j++) {
-			 * 
-			 * } }
-			 * 
-			 * if (esPrimo) { System.out.println("Es primo"); } else {
-			 * //System.out.println("No es primo, lo divide "+i); }
-			 */
 		}
 	}
 }
+
+/*
+ * System.out.println("Dime un número. y te digo si es primo"); long numero =
+ * Long.parseLong(sc.nextLine()); boolean esPrimo = true; long i; for (i=2; i <
+ * numero; i++) { if (numero % i == 0) { System.out.println("Lo divide "+i);
+ * esPrimo = false; break; //Se usa break cuando para ahorrate tiempo } for(int
+ * j=0;j<10;j++) {
+ * 
+ * } }
+ * 
+ * if (esPrimo) { System.out.println("Es primo"); } else {
+ * //System.out.println("No es primo, lo divide "+i); }
+ */

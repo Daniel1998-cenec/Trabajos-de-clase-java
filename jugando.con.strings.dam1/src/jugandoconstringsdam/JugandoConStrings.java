@@ -124,7 +124,8 @@ public class JugandoConStrings {
 				// Esta opción, además de eso, entre letra y letrainserta
 				// otra letra aleatoria. Eje:
 				// kvmxkrlqku
-				int numeroAleatorio=r.nextInt(123,97);
+				
+				int numeroAleatorio=r.nextInt(123-97);
 				
 				for (byte i = 0; i < texto.length(); i++) {
 					codificado += (char) (texto.charAt(i) + numeroAleatorio);
