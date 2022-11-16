@@ -13,7 +13,7 @@ public class JugandoConStrings {
 		String mimificado = "";
 		String codificado = "";
 		String descodificado = "";
-		Random r= new Random();
+		Random aleatorio= new Random();
 		
 
 		while (opcion != 's') {
@@ -130,8 +130,7 @@ public class JugandoConStrings {
 				for (byte i = 0; i < texto.length(); i++) {
 				
 					codificado += (char)(texto.charAt(i) + 0);
-					
-					codificado+= (char)(r.nextInt(97,123));	
+					codificado+= (char)(aleatorio.nextInt(97,123));	
 				}
 				
 				System.out.println(codificado);
