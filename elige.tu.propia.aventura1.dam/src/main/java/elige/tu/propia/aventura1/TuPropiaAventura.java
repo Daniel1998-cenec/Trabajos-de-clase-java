@@ -96,19 +96,17 @@ public class TuPropiaAventura {
 				default:
 					System.out.println("Tenías que poner un numero" + "entre 1 y 4");
 					break;
-
 				}
-
+				break;
 			case 2:
-				System.out.print("Te pega un tiro, y te dice: " + "Me llamo cancamuso, so payas"
+				System.out.println("Te pega un tiro, y te dice: " + "Me llamo cancamuso, so payas"
 						+ (genero == 'h' ? 'o' : genero == 'm' ? 'a' : 'e') + ": Muere. Has Muerto");
-				muertes++;
-				System.out.println("a");// lo que acabamos
+				// lo que acabamos
 				// de
 				// hacer se
 				// llama
 				// "if ternario"
-
+				muertes++;
 				break;
 
 			case 3:
@@ -122,19 +120,19 @@ public class TuPropiaAventura {
 				byte opcion2 = Byte.parseByte(scan.nextLine());
 
 				if (opcion2 == 1) {
-					System.out.println("Los " + nAlumnos
-							+ " yo muero y me tranformo en zombi,  mato al ornitorrinco. Empieza el apocalipsis zombi... ");
+					System.out.println("Los "+ nAlumnos+" alumnos mueren."
+							+ " Yo muero y me tranformo en zombi,  mato al ornitorrinco. Empieza el apocalipsis zombi... ");
 					muertes++;
 				}
 
 				else if (opcion2 == 2) {
 					System.out.println(
-							"Me doy cuenta en el fondo de mi ser que tengo un super poder, en el cual, realiza un kamemeha por el podre cagarme al mono y salvar "
+							"Me doy cuenta en el fondo de mi ser que tengo un super poder, en el cual, realiza un kamemeha por el que podre cargarme al ornitorrinco y salvar la humanidad "
 									+ nAlumnos + " alumnos.");
 				} else if (opcion2 == 3) {
 					System.out.println("Mato al ornitorrinco a puñetazos");
 				} else if (opcion2 == 4) {
-					System.out.println("El mono sale corriendo porque ve una cucaracha");
+					System.out.println("El ornitorrinco sale corriendo porque ve una cucaracha");
 				}
 				break;
 
