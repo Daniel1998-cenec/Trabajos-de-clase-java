@@ -129,7 +129,7 @@ public class JugandoConStrings {
 				
 				for (byte i = 0; i < texto.length(); i++) {
 				
-					codificado += (char)(texto.charAt(i) + 0);
+					codificado += (char)(texto.charAt(i) + 10);
 					codificado+= (char)(aleatorio.nextInt(97,123));	
 				}
 				
