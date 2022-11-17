@@ -102,6 +102,7 @@ public class TuPropiaAventura {
 			case 2:
 				System.out.print("Te pega un tiro, y te dice: " + "Me llamo cancamuso, so payas"
 						+ (genero == 'h' ? 'o' : genero == 'm' ? 'a' : 'e') + ": Muere. Has Muerto");
+				muertes++;
 				System.out.println("a");// lo que acabamos
 				// de
 				// hacer se
@@ -113,7 +114,7 @@ public class TuPropiaAventura {
 			case 3:
 				System.out.println("Se lía a metralletazos, a tí" + " no te mata,\n" + "porque te has escondido,"
 						+ " pero se carga a " + nAlumnos * 60 / 100 + "\n\t1 - Los " + nAlumnos
-						+ " alumnos que mueren se tranforma en zombi\n"
+						+ " Yo muero y me tranformo en zombi\n"
 						+ "\t2 - Me doy cuenta en el fondo de mi ser que tengo un super poder...\n"
 						+ "\t3 - Mato al ornitorrinco a puñetazos\n"
 						+ "\t4 - El ornitorrinco sale corriendo porque ve una cucaracha");
@@ -122,7 +123,7 @@ public class TuPropiaAventura {
 
 				if (opcion2 == 1) {
 					System.out.println("Los " + nAlumnos
-							+ " alumnos que mueren se tranforma en zombi,  matan al ornitorrinco y muero. Empieza el apocalipsis zombi... ");
+							+ " yo muero y me tranformo en zombi,  mato al ornitorrinco. Empieza el apocalipsis zombi... ");
 					muertes++;
 				}
 
@@ -153,6 +154,6 @@ public class TuPropiaAventura {
 		}
 
 		System.out.println("Han jugado " + nHombres + " hombres y han jugado " + nMujeres + " mujeres.");
-		System.out.println("He muerto " + muertes + " veces :(");
+		System.out.println("He muerto " + muertes + " :(");
 	}
 }
