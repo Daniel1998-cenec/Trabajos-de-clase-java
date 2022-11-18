@@ -15,10 +15,11 @@ public class piramides {
 			System.out.println();
 		}
 
-		for (byte p = (byte) (pisos - 1); p > 0; p--) {
-			for (byte j = 0; j < (i); j++) {
+		for (byte p = (byte) (pisos); p > 0; p--) {
+			for (byte j = 0; j < (p); j++) {
 				System.out.print("@");
 			}
+			
 			System.out.println();
 		}
 	}

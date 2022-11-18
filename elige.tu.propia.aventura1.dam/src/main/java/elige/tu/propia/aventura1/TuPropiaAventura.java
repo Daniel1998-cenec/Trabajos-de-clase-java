@@ -10,7 +10,8 @@ public class TuPropiaAventura {
 		Scanner scan = new Scanner(System.in);
 		boolean repetirRespuesta = true;
 		// Aquí estamos haciendo switch de repuesta.
-
+		char genero = 'm';// todas existen dentro de su ambito "{}" es mejor ponerlo fuera de las llaves
+							// no dentro.
 		byte nHombres = 0;
 		byte nMujeres = 0;
 		byte muertes = 0;
@@ -19,10 +20,6 @@ public class TuPropiaAventura {
 
 			System.out.println("Escribe h si eres hombre, m si eres mujer y n si eres neutro");
 			String respuesta = scan.nextLine();
-			char genero = 'm'; // todas existen dentro de su ambito "{}" es mejor ponerlo fuera de las llaves
-
-			// no dentro.
-
 			switch (respuesta) {
 
 			case "h": // Si se cumple algunos de los h, hombre H, Hombre es H.
@@ -94,10 +91,9 @@ public class TuPropiaAventura {
 					System.out.println("Salgo volando en mi jet lag");
 					break;
 				default:
-					System.out.println("Tenías que poner un numero" + "entre 1 y 4");
+					System.out.println("Tenías que poner un numero " + "entre 1 y 4");
 					break;
 				}
-				break;
 			case 2:
 				System.out.println("Te pega un tiro, y te dice: " + "Me llamo cancamuso, so payas"
 						+ (genero == 'h' ? 'o' : genero == 'm' ? 'a' : 'e') + ": Muere. Has Muerto");
@@ -120,7 +116,7 @@ public class TuPropiaAventura {
 				byte opcion2 = Byte.parseByte(scan.nextLine());
 
 				if (opcion2 == 1) {
-					System.out.println("Los "+ nAlumnos+" alumnos mueren."
+					System.out.println("Los " + nAlumnos + " alumnos mueren."
 							+ " Yo muero y me tranformo en zombi,  mato al ornitorrinco. Empieza el apocalipsis zombi... ");
 					muertes++;
 				}
