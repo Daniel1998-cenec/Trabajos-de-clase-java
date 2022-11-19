@@ -43,7 +43,7 @@ public class TamagochiSupremo {
 		while (razasTamagochi < 1 || razasTamagochi > 4) {
 
 			System.out.println("Dime la raza de tu tamagochi" + "\n");
-			System.out.println("Elige la raza:");
+			System.out.println("Elige la raza:"+" (Mediante un número)");
 			System.out.println("\n\t1. Perro" + "\n\t2. Gato" + "\n\t3. Hipopótamo" + "\n\t4. Carpincho");
 			razasTamagochi = Byte.parseByte(scan.nextLine());
 
@@ -104,24 +104,36 @@ public class TamagochiSupremo {
 
 			case 1:
 				hambre += +20;
+				if (hambre>=100) {
+					hambre=100;
+				}
 				sueño += -10;
 				higiene += -10;
 				diversion += -10;
 				break;
 			case 2:
 				sueño += +20;
+				if (sueño>=100) {
+					sueño=100;
+				}
 				hambre += -10;
 				higiene += -10;
 				diversion += -10;
 				break;
 			case 3:
 				higiene += +20;
+				if (higiene>=100) {
+					higiene=100;
+				}
 				hambre += -10;
 				sueño += -10;
 				diversion += -10;
 				break;
 			case 4:
 				diversion += +20;
+				if(diversion>=100) {
+					diversion=100;
+				}
 				hambre += -10;
 				sueño += -10;
 				higiene += -10;
@@ -129,6 +141,9 @@ public class TamagochiSupremo {
 			case 5:
 				if (razas.equals("perro")) {
 					paseo += +20;
+					if (paseo>=100) {
+						paseo=100;
+					}
 					hambre += -10;
 					sueño += -10;
 					higiene += -10;
@@ -136,6 +151,9 @@ public class TamagochiSupremo {
 				}
 				if (razas.equals("carpincho")) {
 					tomarMate += +20;
+					if (tomarMate>=100) {
+						tomarMate=100;
+					}
 					hambre += -10;
 					sueño += -10;
 					higiene += -10;
@@ -146,7 +164,7 @@ public class TamagochiSupremo {
 			if (hambre <= 0 || sueño <= 0 || higiene <= 0 || diversion <= 0 || paseo <= 0 || tomarMate <= 0
 					|| turnos >= 30) {
 				vivo = false;
-				System.out.println("Mi tamagochi "+nombre+" ha muerto, en el turno "+turnos);
+				System.out.println("Mi tamagochi "+nombre+" ha muerto, en el turno "+turnos);	
 			}
 		}
 	/*
