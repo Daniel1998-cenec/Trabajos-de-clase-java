@@ -2,6 +2,7 @@ package com.dvargas.tamagochi.dam;
 
 import java.io.InputStream;
 import java.util.Scanner;
+
 /**
  * 
  * @author 1DAM&&1DAW
@@ -11,21 +12,37 @@ public class TamagochiSupremo {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
+		/*Uso razaTamagochi y lo declaro para el bucle while ya que siempre hay que declararlo,
+		 * lo uso en byte porque quiero elegir las opciones de switch mediante numeros (1-4)
+		 */
 		byte razasTamagochi = 0;
-		byte tamagochiIntroducido = 0;
+		//uso la variable raza para declarar cada razasTamagochi 
 		String razas = "";
+		/*
+		 * Declaro hambre, sueño, higiene, diversion, paseo y tomar mate
+		 * para establecer por defecto tomas las características a 50 
+		 */
 		byte hambre = 50;
 		byte sueño = 50;
 		byte higiene = 50;
 		byte diversion = 50;
 		byte paseo = 50;
 		byte tomarMate = 50;
-		boolean otroTamagochi = true;
+		//declaro turnos para guardar cada ronda que sobrevive el tamagochi
+		byte turnos = 0;
+		/*Uso esta variable para poder usar el bucle while, la declaro, y ahi meto 
+		 *las estadisticas por defecto del tamagochi, y luego, meto las acciones 
+		 *que va a realizar
+		 */
+		boolean vivo = true;
+		//Para dar el nombre a mi tamagochi
 		String nombre;
-
+		/*Uso while
+		 * 
+		 */
 		while (razasTamagochi < 1 || razasTamagochi > 4) {
 
-			System.out.println("Dime la raza de tu tamagochi"+"\n");
+			System.out.println("Dime la raza de tu tamagochi" + "\n");
 			System.out.println("Elige la raza:");
 			System.out.println("\n\t1. Perro" + "\n\t2. Gato" + "\n\t3. Hipopótamo" + "\n\t4. Carpincho");
 			razasTamagochi = Byte.parseByte(scan.nextLine());
@@ -60,58 +77,81 @@ public class TamagochiSupremo {
 				|| nombre.contains("5") || nombre.contains("6") || nombre.contains("7") || nombre.contains("8")
 				|| nombre.contains("9") || nombre.contains("0")));
 
-		System.out.println(nombre + " " + razas + "\n"
-				+ "\n\t1 - Hambre: "+hambre 
-				+ "\n\t2 - Sueño: " + sueño
-				+ "\n\t3 - Higiene: " + higiene 
-				+ "\n\t4 - Diversion: " + diversion);
+		while (vivo) {
+			turnos++;
 
-		if (razas.equalsIgnoreCase("perro")) {
-			System.out.print("\t5 - paseo: " + paseo+"\n");
-		}
-		if (razas.equalsIgnoreCase("carpincho")) {
-			System.out.print("\t5 - tomarmate: " + tomarMate+"\n");
-		}
-		
-		System.out.println("\nElige acción:\n"+ 
-				"\n\t1 - Comer" + 
-				"\n\t2 - Dormir" + 
-				"\n\t3 - Ducharse" + 
-				"\n\t4 - Jugar");
+			System.out.println(nombre + " " + razas + "\n" + "\n - Hambre: " + hambre + "\n - Sueño: " + sueño
+					+ "\n - Higiene: " + higiene + "\n - Diversion: " + diversion);
 
-		if (razas.equals("perro")) {
-			System.out.print("\t5 - Paseo "+"\n");
-		}
-		if (razas.equals("carpincho")) {
-			System.out.print("\t5 - Tomarmate "+"\n");
-		}
+			if (razas.equalsIgnoreCase("perro")) {
+				System.out.print(" - paseo: " + paseo + "\n");
+			}
+			if (razas.equalsIgnoreCase("carpincho")) {
+				System.out.print(" - tomarmate: " + tomarMate + "\n");
+			}
+			System.out.println(
+					"\nElige acción:\n" + "\n\t1 - Comer" + "\n\t2 - Dormir" + "\n\t3 - Ducharse" + "\n\t4 - Jugar");
 
-		byte opcion = Byte.parseByte(scan.nextLine());
-		switch (opcion) {
-
-		case 1:
-			hambre += +30;
-			break;
-		case 2:
-			sueño += +30;
-			break;
-		case 3:
-			higiene += +30;
-			break;
-		case 4:
-			diversion += +30;
-			break;
-		case 5:
 			if (razas.equals("perro")) {
-				paseo += +30;
+				System.out.print("\t5 - Paseo " + "\n");
 			}
 			if (razas.equals("carpincho")) {
-				tomarMate += +30;
+				System.out.print("\t5 - Tomarmate " + "\n");
 			}
-			break;
+
+			byte opcion = Byte.parseByte(scan.nextLine());
+			switch (opcion) {
+
+			case 1:
+				hambre += +20;
+				sueño += -10;
+				higiene += -10;
+				diversion += -10;
+				break;
+			case 2:
+				sueño += +20;
+				hambre += -10;
+				higiene += -10;
+				diversion += -10;
+				break;
+			case 3:
+				higiene += +20;
+				hambre += -10;
+				sueño += -10;
+				diversion += -10;
+				break;
+			case 4:
+				diversion += +20;
+				hambre += -10;
+				sueño += -10;
+				higiene += -10;
+				break;
+			case 5:
+				if (razas.equals("perro")) {
+					paseo += +20;
+					hambre += -10;
+					sueño += -10;
+					higiene += -10;
+					diversion += -10;
+				}
+				if (razas.equals("carpincho")) {
+					tomarMate += +20;
+					hambre += -10;
+					sueño += -10;
+					higiene += -10;
+					diversion += -10;
+				}
+				break;
+			}
+			if (hambre <= 0 || sueño <= 0 || higiene <= 0 || diversion <= 0 || paseo <= 0 || tomarMate <= 0
+					|| turnos >= 30) {
+				vivo = false;
+				System.out.println("Mi tamagochi "+nombre+" ha muerto, en el turno "+turnos);
+			}
 		}
-		hambre+=(-10); sueño+=(-10); higiene+=(-10); diversion+=(-10); paseo+=(-10); tomarMate+= +30;
-		
+	/*
+	 * Este trabajo no lo hubiera hecho sin ayuda de Max, javi vela y un alumno de un año diferente "alex Gordo"
+	 */
 	}
 
 }
