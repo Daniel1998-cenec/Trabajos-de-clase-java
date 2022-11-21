@@ -16,7 +16,6 @@ public class PercebesPrincipal {
 				          + "|----------------------------|");
 		
 		for (byte c=0; c<np; c++) {   
-			
 		for (byte d=0; d<nb; d++) {   
 			System.out.print("|-----|");
 		}

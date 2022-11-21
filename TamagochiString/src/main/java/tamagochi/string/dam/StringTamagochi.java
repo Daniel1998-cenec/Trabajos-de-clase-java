@@ -1,16 +1,17 @@
-package com.dvargas.percebe.dam;
+package tamagochi.string.dam;
 
 import java.util.Scanner;
 
-public class EjercicioTamagochiUsandoString {
+public class StringTamagochi {
 
 	public static void main(String[] args) {
-		
-		Scanner sc=new Scanner(System.in);
-		String razasTamagochi="";
+
+		Scanner sc = new Scanner(System.in);
+		String razasTamagochi = "";
 		String razas;
-		
-		while (!(razasTamagochi.equalsIgnoreCase("perro")||razasTamagochi.equalsIgnoreCase("gato")||razasTamagochi.equalsIgnoreCase("hipopotamo")||razasTamagochi.equalsIgnoreCase("carpincho"))) {
+
+		while (!(razasTamagochi.equalsIgnoreCase("perro") || razasTamagochi.equalsIgnoreCase("gato")
+				|| razasTamagochi.equalsIgnoreCase("hipopotamo") || razasTamagochi.equalsIgnoreCase("carpincho"))) {
 
 			System.out.println("Dime la raza de tu tamagochi" + "\n");
 			System.out.println("Elige la raza:");
