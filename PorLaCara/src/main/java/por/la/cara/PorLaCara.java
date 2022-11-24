@@ -21,9 +21,9 @@ public class PorLaCara {
 		System.out.println(Funciones.pintaTrozoCara(" /---\\ ", nCaras));
 
 		System.out.println("Elije los ojos que quieres");
-		char x = sc.nextLine().charAt(0);
+		char ojos = sc.nextLine().charAt(0);
 		System.out.println(Funciones.pintaTrozoCara(" /'''\\ ", nCaras));
-		System.out.println(Funciones.pintaTrozoCara(Funciones.PintaCara("(|o o|)", x), nCaras));
+		System.out.println(Funciones.pintaTrozoCara(Funciones.PintaCara("(|o o|)", ojos), nCaras));
 		System.out.println(Funciones.pintaTrozoCara(" \\ - / ", nCaras));
 		System.out.println(Funciones.pintaTrozoCara(" /---\\ ", nCaras));
 	}
