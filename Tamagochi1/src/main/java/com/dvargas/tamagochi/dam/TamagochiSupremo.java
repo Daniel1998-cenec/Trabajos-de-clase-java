@@ -6,9 +6,9 @@ import java.util.Scanner;
 import funciones.tamagochi.FuncionesTamagochi;
 
 /**
- * 
- * @author 1DAM&&1DAW
- *
+ * Realiza la eleccion de la raza del tamagochi, elige el nombre. Tambien decide las acciones del tamagochi.
+ * @author Daniel Cesar Vargas Holguin
+ * @version 1
  */
 public class TamagochiSupremo {
 
@@ -171,6 +171,7 @@ public class TamagochiSupremo {
 					|| turnos >= 30) {
 				vivo = false;
 				System.out.println("Mi tamagochi " + nombre + " ha muerto, en el turno " + turnos);
+				System.out.println(FuncionesTamagochi.enterrar(nombre, razas, turnos)); 
 			}
 		}
 		/*
