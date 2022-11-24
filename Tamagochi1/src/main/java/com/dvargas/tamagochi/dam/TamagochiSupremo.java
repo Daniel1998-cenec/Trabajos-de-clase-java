@@ -3,6 +3,8 @@ package com.dvargas.tamagochi.dam;
 import java.io.InputStream;
 import java.util.Scanner;
 
+import funciones.tamagochi.FuncionesTamagochi;
+
 /**
  * 
  * @author 1DAM&&1DAW
@@ -93,8 +95,7 @@ public class TamagochiSupremo {
 			if (razas.equalsIgnoreCase("carpincho")) {
 				System.out.print(" - tomarmate: " + tomarMate + "\n");
 			}
-			System.out.println(
-					"\nElige acción:\n" + "\n\t1 - Comer" + "\n\t2 - Dormir" + "\n\t3 - Ducharse" + "\n\t4 - Jugar");
+			System.out.println(FuncionesTamagochi.imprimirMenu());
 
 			if (razas.equals("perro")) {
 				System.out.print("\t5 - Paseo " + "\n");
