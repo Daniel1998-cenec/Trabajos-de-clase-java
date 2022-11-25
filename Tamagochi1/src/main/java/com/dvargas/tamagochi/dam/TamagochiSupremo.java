@@ -1,4 +1,4 @@
-package com.dvargas.tamagochi.dam;
+ package com.dvargas.tamagochi.dam;
 
 import java.io.InputStream;
 import java.util.Scanner;

@@ -1,5 +1,7 @@
 package funciones.tamagochi;
 
+import java.util.Random;
+
 public class FuncionesTamagochi {
 /**
  * Esta funcion lo que realiza es realizar las acciones del tamagochi (menu).
@@ -19,35 +21,61 @@ public class FuncionesTamagochi {
  */
 	public static String enterrar(String nombre, String raza, byte turnos) {
 		String contadorNombre=nombre+" "+raza;
-		String espacioBlanco=" ";
+		String espacioBlanco="";
+		String espacioBlanco1="";
+		String espacioBlanco3="";
 		
-			if (contadorNombre.length()<24) {
-				byte espaciosQueFaltan=(byte)(24-contadorNombre.length());
-				for(byte a=0;a<espaciosQueFaltan/2;a++) {
-				espacioBlanco+=" ";
-				}
-				contadorNombre=espacioBlanco+contadorNombre+espacioBlanco;
-			}
-		
+		byte espaciosQueFaltan=(byte)(31-contadorNombre.length());
+		for(byte a=0;a<espaciosQueFaltan/2;a++) {
+		espacioBlanco+=" ";
+		}
+		contadorNombre=espacioBlanco+contadorNombre+espacioBlanco;
+			/*if (espacioBlanco.length()%2==0) {
+				espacioBlanco=" ";
+			}*/
 		String contadorTurnos="vivió "+turnos+" turnos";
 		
-			if (contadorTurnos.length()<24) {
-				byte espaciosFaltan=(byte)(2-contadorTurnos.length());
-				for(byte a=0;a<espaciosFaltan/2;a++) {
-				espacioBlanco+=" ";
-				}
-				contadorTurnos=espacioBlanco+contadorTurnos+espacioBlanco;
+		byte espaciosFaltan=(byte)(31-contadorTurnos.length());
+		for(byte a=0;a<espaciosFaltan/2;a++) {
+			espacioBlanco1+=" ";
+			}
+		contadorTurnos=espacioBlanco1+contadorTurnos+espacioBlanco1;
+			
+		String opcionMuerte="";
+		Random r=new Random();
+		switch (r.nextInt(4)) {
+		case 0:
+			opcionMuerte="Se ha morido";
+			break;
+		case 1:
+			opcionMuerte="Dimitió de existir";
+			break;
+		case 2 :
+			opcionMuerte="La ha espichado";
+			break;
+		case 3 :
+			opcionMuerte="Viaja hacia las estrellas";
+			break;
 			}
 		
+		String contadorOpcionMuerte=opcionMuerte;
+		byte espaciosFaltado=(byte)(30-contadorOpcionMuerte.length()); 
 		
-		return"         __________________________  \n"
-				+ "        |\\_________________________\\ \n"
-				+ "        | |          D.E.P         |   \n"                 
+		for(byte a=0;a<espaciosFaltado/2;a++) {
+			espacioBlanco3+=" ";
+			}
+		
+		contadorOpcionMuerte=espacioBlanco3+contadorOpcionMuerte+espacioBlanco3;	
+		
+		return"         _________________________________  \n"
+				+ "        |\\________________________________\\ \n"
+				+ "        | |           D.E.P               |   \n"                 
 				+ "        | |"+contadorNombre+"|\n"       
-				+ "        | |   Dimitió de existir   |     \n"       
+				+ "        | |"+contadorOpcionMuerte+"|\n"       
 				+ "        | |"+contadorTurnos+"|\n"
 				+ "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-	
+		
+	 
 	}
 
 }
