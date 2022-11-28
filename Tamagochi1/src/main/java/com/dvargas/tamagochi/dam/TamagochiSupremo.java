@@ -79,9 +79,7 @@ public class TamagochiSupremo {
 		do {
 			System.out.println("Dime el nombre de tu tamagochi");
 			nombre = scan.nextLine();
-		} while ((nombre.contains("1") || nombre.contains("2") || nombre.contains("3") || nombre.contains("4")
-				|| nombre.contains("5") || nombre.contains("6") || nombre.contains("7") || nombre.contains("8")
-				|| nombre.contains("9") || nombre.contains("0")));
+		} while (FuncionesTamagochi.tieneNumeros(nombre));
 
 		while (vivo) {
 			turnos++;
@@ -110,63 +108,55 @@ public class TamagochiSupremo {
 
 			case 1:
 				hambre += +20;
-				if (hambre >= 100) {
-					hambre = 100;
+				if (hambre >= 105) {
+					hambre = 105;
 				}
-				sueño += -10;
-				higiene += -10;
-				diversion += -10;
+				
 				break;
 			case 2:
 				sueño += +20;
-				if (sueño >= 100) {
-					sueño = 100;
+				if (sueño >= 105) {
+					sueño = 105;
 				}
-				hambre += -10;
-				higiene += -10;
-				diversion += -10;
 				break;
 			case 3:
 				higiene += +20;
-				if (higiene >= 100) {
-					higiene = 100;
+				if (higiene >= 105) {
+					higiene = 105;
 				}
-				hambre += -10;
-				sueño += -10;
-				diversion += -10;
 				break;
 			case 4:
 				diversion += +20;
-				if (diversion >= 100) {
-					diversion = 100;
+				if (diversion >= 105) {
+					diversion = 105;
 				}
-				hambre += -10;
-				sueño += -10;
-				higiene += -10;
 				break;
 			case 5:
 				if (razas.equals("perro")) {
 					paseo += +20;
-					if (paseo >= 100) {
-						paseo = 100;
+					if (paseo >= 105) {
+						paseo = 105;
 					}
-					hambre += -10;
-					sueño += -10;
-					higiene += -10;
-					diversion += -10;
 				}
 				if (razas.equals("carpincho")) {
 					tomarMate += +20;
-					if (tomarMate >= 100) {
-						tomarMate = 100;
+					if (tomarMate >= 105) {
+						tomarMate = 105;
 					}
-					hambre += -10;
-					sueño += -10;
-					higiene += -10;
-					diversion += -10;
 				}
 				break;
 			}
+			hambre += -5;
+			sueño += -5;
+			higiene += -5;
+			diversion += -5;
+			if (razas.equals("perro")) {
+				paseo+=-5;
+			}
+			if (razas.equals("carpincho")) {
+				tomarMate+=-5;
+			}
+			
 			if (hambre <= 0 || sueño <= 0 || higiene <= 0 || diversion <= 0 || paseo <= 0 || tomarMate <= 0
 					|| turnos >= 30) {
 				vivo = false;
