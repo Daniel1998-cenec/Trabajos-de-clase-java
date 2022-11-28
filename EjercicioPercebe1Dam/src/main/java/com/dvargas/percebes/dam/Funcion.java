@@ -1,5 +1,9 @@
 package com.dvargas.percebes.dam;
-
+/**
+ * 
+ * @author 1DAM&&1DAW
+ *
+ */
 public class Funcion {
 	/**
 	 * Esta funcion realiza la operacion de dibujar tanto el tejado como bloque y la casa.

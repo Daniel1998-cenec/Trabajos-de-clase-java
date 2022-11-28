@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class PercebesPrincipal {
 /**
  * En esta funcion es donde realizo el percebe
- * @param args
+ * @param args no se usa
  */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
