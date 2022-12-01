@@ -14,9 +14,8 @@ import java.util.Random;
  */
 public class Funcione2 {
 	/**
-	 * funcion inicial de pruea, que solamente hace un sisout que dice hola
+	 * funcion inicial de prueba, que solamente hace un sisout que dice hola
 	 */
-	
 	
 	public static void funcionPrueba () {
 		System.out.println("Hola desde la función");

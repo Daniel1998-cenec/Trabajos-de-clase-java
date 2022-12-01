@@ -1,7 +1,11 @@
 package por.la.cara.dam;
 
 import java.util.Random;
-
+/**
+ * 
+ * @author BEEP
+ *
+ */
 public class Funciones {
 	public static String pintaTrozoCara(String trozo, byte nVeces) {
 		String ret = "";
@@ -14,11 +18,20 @@ public class Funciones {
 		}
 		return ret;
 	}
-
+/**
+ * 
+ * @param trozos
+ * @param original
+ * @param reemplazo
+ * @return
+ */
 	public static String cambiaCaracter(String trozos, char original, char reemplazo) {
 		return trozos.replace(original, reemplazo);
 	}
-
+/**
+ * 
+ * @return
+ */
 	public static String peloAleatorio() {
 
 		Random r = new Random();
@@ -37,7 +50,10 @@ public class Funciones {
 		}
 		return null;
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public static String nombreAleatorio() {
 		
 	Random r=new Random();
