@@ -15,7 +15,7 @@ public class Principal {
 
 		do {
 
-		} while (posicionInicial < posicionFinal) > texto.length();
+		} while (posicionInicial < posicionFinal && posicionInicial > texto.length()&&posicionFinal>texto.length());
 	}
 
 }
