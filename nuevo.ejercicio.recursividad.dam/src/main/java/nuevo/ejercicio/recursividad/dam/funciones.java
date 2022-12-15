@@ -13,8 +13,8 @@ public class funciones {
 		}
 	}
 
-	public static byte cuentraLetras(short i ) {
+	/*public static byte cuentraLetras() ) {
 		
-	}
+	}*/
 
 }
