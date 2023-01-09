@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class Principal {
 
 	public static void main(String[] args) {
-		String [] nombres=new String [7];
+		
+		String[] nombres=new String [7];
 		String[] apellidos= {"Gutierrez", "Gómez","Peña","Centollo","Buendía","Furgo"};
 		
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Dime una posición para ponerle un nombre (0-" 
-		+(nombres.length-1)+"):");
+		System.out.println("Dime una posición para ponerle un nombre (0-"+(nombres.length-1)+"):");
 		byte posicion=Byte.parseByte(sc.nextLine());
 		System.out.println("Dime un nombre para la posicion "+posicion+": ");
 		if(Funciones.valorPosicion(nombres, posicion, sc.nextLine())) {
@@ -24,6 +24,9 @@ public class Principal {
 		(nombres[i]!=null?nombres[i].toUpperCase():"-"));	
 		}
 		
+		
+		
+		
 		//Ejercicio diario 12/01/23
 		//Crea una función llamada intercambio que devuelva un boolean,
 		//y reciba tres argumentos-. un array de char, y dos byte llamados
@@ -33,7 +36,9 @@ public class Principal {
 		//Si las dos posiciones válidas, intercambiaría los valores de las posiciones p1 y p2 dentro del array.
 		//Te propongo que lo intentes con el siguiente array declarando en el main:
 		//char[] letras={'p','e','l','o','t','a'}
-
+		
+		char[] letras={'p','e','l','o','t','a'};
+		System.out.println(Funciones.intercambio(letras, posicion,posicion));
 	}
 
 }

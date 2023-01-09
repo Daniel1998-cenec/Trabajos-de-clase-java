@@ -17,5 +17,14 @@ public class Funciones {
 		array[posicion]=valor;
 		return true;
 	}
-	
+	public static boolean intercambio (char[] array, byte p1, byte p2) { 
+		if (p1<0||p1>=array.length||p2<0||p2>=array.length) {
+		return false;
+		}
+		
+		char posicionValida=array[p1];
+		array[p1]=array[p2];
+		array[p2]=posicionValida;
+		return true;
+	}
 }
