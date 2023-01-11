@@ -36,8 +36,7 @@ public class Principal {
 		// char[] letras={'p','e','l','o','t','a'}
 
 		char[] letras = { 'p', 'e', 'l', 'o', 't', 'a' };
-		if (Funciones.intercambio(letras, posicion, posicion)) {
-
-		}
+		System.out.println(letras);
+		System.out.println(Funciones.intercambio(letras, (byte)2, (byte)3));
 	}
 }
