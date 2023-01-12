@@ -1,5 +1,7 @@
 package arrays.dam;
 
+import java.util.Random;
+
 /**
  * Función que dado un array, una posición y un valor, mete (si puede) el valor
  * en la posición del array indicada.
@@ -25,13 +27,43 @@ public class Funciones {
 			return false;
 		} else {
 
-			char auxiliar;
-			auxiliar = array[p1];
+			char auxiliar = array[p1];
 			array[p1] = array[p2];
 			array[p2] = auxiliar;
-
-			System.out.println(array);
 			return true;
 		}
+
+	}
+
+	private static char[] stringAArray(String orig) {
+		char[] ret = new char[orig.length()];
+		for (byte i = 0; i < orig.length(); i++) {
+			ret[i] = orig.charAt(i);
+		}
+		return ret;
+	}
+	public static char[] arrayAlAzar() {
+		return stringAArray(palabraAlAzar());
+	}
+	private static String palabraAlAzar() {
+		String[] palabrasPosibles= {"algoritmo","igual","parecidas","cancamusa","teclado","bolsa","ornitorrinco","motosierra","cermuzo","kamekameha","australopitecido","redencion", "patracio"};
+		Random r=new Random();
+		return palabrasPosibles[r.nextInt(palabrasPosibles.length)];
+	}
+	public static String imprimeArray(char[]array) {
+		String ret="";
+		//for(char actual:array){
+			//ret+=actual+"\t";
+		for(byte i=0;i<array.length;i++) {
+			ret+=array[i]+"\t";
+		}
+		return ret;
+	}
+	public static char[] copiaArray(char[] orig){
+		char[] ret=new char[orig.length];
+		for(byte i=0;i<orig.length;i++) {
+			ret[i]=orig[i];
+		}
+		return ret;
 	}
 }
