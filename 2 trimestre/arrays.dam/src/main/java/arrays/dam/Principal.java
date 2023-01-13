@@ -58,7 +58,7 @@ public class Principal {
 		String[] letrasEleccion=eleccion.split("");
 		//Para el Lunes 16: 
 		// -Usa la función split para separar todas las letras de eleccion entre si
-		// -Crea una función public static boolean sonIguales(char[] arri, char[]arr2)
+		// -Crea una función public static boolean sonIguales(char[] arr1, char[]arr2)
 		// Esa función primero compara si los tamaños de arr1 y arr2 son iguales.
 		// si no, devuelve false. Si tienen el mismo tamaño, va comparando posición
 		// a posición, si el contenido de arr1[i] es igual a arr2[i]. Si alguno no es 
