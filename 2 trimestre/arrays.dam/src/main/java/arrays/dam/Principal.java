@@ -58,9 +58,7 @@ public class Principal {
 		String eleccion=sc.nextLine();
 		String[] letrasEleccion=eleccion.split("");
 		char[] nuevoArray= new char [eleccion.length()];
-		//
 		for(byte i=0;i<eleccion.length();i++) {
-			//
 			nuevoArray[i]=letrasEleccion[i].charAt(0);
 		}
 		
