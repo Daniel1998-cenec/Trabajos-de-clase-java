@@ -11,7 +11,10 @@ import funciones.tamagochi.FuncionesTamagochi;
  * @version 1
  */
 public class TamagochiSupremo {
-
+/**
+ * 
+ * @param args no se usa.
+ */
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		/*

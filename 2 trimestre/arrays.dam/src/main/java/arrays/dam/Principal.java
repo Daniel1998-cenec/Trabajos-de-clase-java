@@ -2,9 +2,17 @@ package arrays.dam;
 
 import java.util.Random;
 import java.util.Scanner;
-
+/**
+ * Se escoge una palabra al azar que hay en la funcion del array "palabra al azar", 
+ * te lo desordena y el usuario tiene que escribir la palabra correcta.
+ * @author Daniel Cesar
+ *
+ */
 public class Principal {
-
+/**
+ * Aqui es donde llevaremos acabo el proyecto de desordenar la palabra y nosotros ponerlo correctamente.
+ * @param args no se sabemos lo que es por ahora
+ */
 	public static void main(String[] args) {
 
 		/*String[] nombres = new String[7];
@@ -57,9 +65,9 @@ public class Principal {
 		Scanner sc = new Scanner(System.in);
 		String eleccion=sc.nextLine();
 		String[] letrasEleccion=eleccion.split("");
-		char[] nuevoArray= new char [eleccion.length()];
+		char[] conversion= new char [eleccion.length()];
 		for(byte i=0;i<eleccion.length();i++) {
-			nuevoArray[i]=letrasEleccion[i].charAt(0);
+			conversion[i]=letrasEleccion[i].charAt(0);
 		}
 		
 		//Para el Lunes 16: 
@@ -78,7 +86,7 @@ public class Principal {
 		String[] resultado=(" "+frase+" ").split("me ");
 		System.out.println(resultado.length-1);*/
 		
-		if(Funciones.sonIguales(nuevoArray, original)) {
+		if(Funciones.sonIguales(conversion, original)) {
 			System.out.println("Bien hecho, carapinga");
 		}else {
 			System.out.println("mal muy mal carapinga, espabila");
