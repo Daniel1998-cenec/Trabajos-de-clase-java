@@ -41,7 +41,8 @@ public class Principal {
 		System.out.println(Funciones.intercambio(letras, (byte)2, (byte)3));
 		System.out.println(letras);*/
 		//---------------------------------------------------------------------------------------------------------------------------------
-		System.out.println("Bienvenid@ a este jueg. Te voy a dar unas "+ "letras desordenadas, y me tienes que decir la palabra original:");
+		System.out.println("Bienvenid@ a este juego. Te voy a dar unas "
+		+ "letras desordenadas, y me tienes que decir la palabra original:");
 		
 		char[] palabraComoArray=Funciones.arrayAlAzar();
 		char[] original=Funciones.copiaArray(palabraComoArray);
@@ -56,6 +57,11 @@ public class Principal {
 		Scanner sc = new Scanner(System.in);
 		String eleccion=sc.nextLine();
 		String[] letrasEleccion=eleccion.split("");
+		char[] nuevoArray= new char [eleccion.length()];
+		for(byte i=0;i<eleccion.length();i++) {
+			nuevoArray[i]=letrasEleccion[i].charAt(0);
+		}
+		
 		//Para el Lunes 16: 
 		// -Usa la función split para separar todas las letras de eleccion entre si
 		// -Crea una función public static boolean sonIguales(char[] arr1, char[]arr2)
@@ -66,10 +72,16 @@ public class Principal {
 		// -Usa la función sonIguales para decir al usuario desde el main si lo que 
 		// puso en elección es igual al array original.
 		
-		String frase="me he emparanollao, porque la vida es dura, pero me da igual,"
+		/*String frase="me he emparanollao, porque la vida es dura, pero me da igual,"
 				+"porque me voy a clase de programación y me deprimo un poco menos."
 				+"y por eso no tengo una depresón enorme de verdad";
 		String[] resultado=(" "+frase+" ").split("me ");
-		System.out.println(resultado.length-1);
+		System.out.println(resultado.length-1);*/
+		
+		if(Funciones.sonIguales(nuevoArray, original)) {
+			System.out.println("Bien hecho, carapinga");
+		}else {
+			System.out.println("mal muy mal carapinga, espabila");
+		}
 	}
 }
