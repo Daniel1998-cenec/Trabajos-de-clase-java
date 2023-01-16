@@ -43,6 +43,7 @@ public class Funciones {
 	 *                 QUE CONTENGA _
 	 * @return la posicion en la que se ha insertado el caracter
 	 */
+	
 	public static byte colocaAleatoriamente(char[] destino, char caracter) {
 		Random r = new Random();
 		byte posicion = (byte) r.nextInt(destino.length);
@@ -51,5 +52,9 @@ public class Funciones {
 		}
 		destino[posicion] = caracter;
 		return posicion;
+	}
+	
+	public static byte moverPelota(char[ ] tablero, char '☠' , byte direccion, byte posicionElemento) {
+		return ;
 	}
 }

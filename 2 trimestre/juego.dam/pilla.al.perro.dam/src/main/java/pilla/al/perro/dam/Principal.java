@@ -55,11 +55,12 @@ public class Principal {
 			 * Todo lo que está en este ámbito, trasladarlo
 			 * a una funcion, llamada moverElemento, devolverá la nueva posición del
 			 * elemento tras moverlo. Por argumentos va a recibir el tablero, el char con el
-			 * símbolo que va a mover, -1 izquierda y 1 derecha y la posicion actual del símbolo a mover Por ejemplo, si
-			 * queremos que la pelona se mueva a la derecha, la llamada a la funcion desde
-			 * el main debería ser: posPelona=Funciones.moverElemento(tablero,'☠',1 posPelona);
+			 * símbolo que va a mover, -1 izquierda y 1 derecha y la posicion actual del símbolo
+			 * a mover Por ejemplo, si queremos que la pelona se mueva a la derecha, 
+			 * la llamada a la funcion desde el main debería ser: 
+			 * posPelona=Funciones.moverElemento(tablero,'☠',1 posPelona);
 			 */
-			{
+			/*{
 				tablero[posPelona] = '_';
 				// En segundo lugar, cambio la posicion de la pelona
 				if (teclaPulsada == teclaIzda) {
@@ -79,10 +80,12 @@ public class Principal {
 				}
 				// Por último, pinto a la pelona en su nueva posición
 				tablero[posPelona] = '☠';
-			}
+			}*/ 
+			
 			/*
 			 * Si la posicion de la pelona es la misma que la del yinyang, cuento una muerte
 			 */
+			
 			if (posPelona == posPersona) {
 				muerteConseguida++;
 				if (muerteConseguida == objetivoMuerte) {
