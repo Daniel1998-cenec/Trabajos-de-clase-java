@@ -25,20 +25,11 @@ public class Funciones {
 	public static String imprimeArrayBonico(char[] array) {
 		String ret = "| ";
 		for (byte i = 0; i < array.length; i++) {
-			ret += array[i] + " ";
+			ret += array[i] + "\t";
 		}
 		ret += "|\n  ";
 		for (byte i = 0; i < array.length; i++) {
-			if (i < 10) {
-				if (array[i] == '☠') {
-					ret += i + "\t";
-				} else {
-					ret += i + " ";
-				}
-				
-			} else {
-				ret += i;
-			}
+			ret+=i+"\t";
 		}
 		return ret;
 	}
