@@ -29,7 +29,7 @@ public class Funciones {
 		}
 		ret += "|\n  ";
 		for (byte i = 0; i < array.length; i++) {
-			ret+=i+"\t";
+			ret += i + "\t";
 		}
 		return ret;
 	}
@@ -53,8 +53,11 @@ public class Funciones {
 		destino[posicion] = caracter;
 		return posicion;
 	}
-	
-	public static byte moverPelota(char[ ] tablero, char '☠' , byte direccion, byte posicionElemento) {
-		return ;
+
+	public static byte moverPelota(char[ ] tablero, char simbolo , byte direccion, byte posicionElemento) {
+		
+		// En segundo lugar, cambio la posicion de la pelona
+		
+		return posicionElemento;
 	}
 }
