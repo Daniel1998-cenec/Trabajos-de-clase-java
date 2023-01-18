@@ -81,7 +81,11 @@ public class Principal {
 				// Por último, pinto a la pelona en su nueva posición
 				tablero[posPelona] = '☠';
 			}*/ 
-			
+			if(teclaPulsada == teclaDcha) {
+			posPelona=Funciones.moverElemento(tablero, '☠', (byte)1, posPelona);
+			}else if (teclaPulsada == teclaIzda) {
+			posPelona=Funciones.moverElemento(tablero, '☠', (byte)-1, posPelona);
+			}
 			/*
 			 * Si la posicion de la pelona es la misma que la del yinyang, cuento una muerte
 			 */

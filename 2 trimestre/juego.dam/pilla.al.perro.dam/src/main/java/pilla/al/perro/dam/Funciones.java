@@ -54,9 +54,28 @@ public class Funciones {
 		return posicion;
 	}
 
-	public static byte moverPelota(char[ ] tablero, char simbolo , byte direccion, byte posicionElemento) {
+	public static byte moverElemento(char[ ] tablero, char simbolo , byte direccion, byte posicionElemento) {
 		
+		tablero[posicionElemento] = '_';
 		// En segundo lugar, cambio la posicion de la pelona
+		if (direccion == -1) {
+			if (posicionElemento != 0) {
+				posicionElemento--;
+			} else {// Tratamiento especial para el caso extremo
+				posicionElemento = (byte) (tablero.length - 1);
+			}
+		}
+		if (direccion == 1) {
+			if (posicionElemento != tablero.length - 1) {
+				posicionElemento++;
+			} else {// Tratamiento especial para el caso extremo
+				posicionElemento = 0;
+			}
+
+		}
+		// Por último, pinto a la pelona en su nueva posición
+		tablero[posicionElemento] = simbolo;
+		
 		
 		return posicionElemento;
 	}
