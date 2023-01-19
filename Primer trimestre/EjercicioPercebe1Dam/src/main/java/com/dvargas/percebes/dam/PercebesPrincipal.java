@@ -9,7 +9,9 @@ import java.util.Scanner;
 public class PercebesPrincipal {
 /**
  * En esta funcion es donde realizo el percebe
- * @param args no se usa
+ * @param args. El primer argumento indicará el número de plantas. Si está puesto 
+ * debe ser un número positivo mayor a cero. Si no está presente, se pedirá por teclado.
+ * El segundo argumento indicará el número de pisos por planta
  */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
