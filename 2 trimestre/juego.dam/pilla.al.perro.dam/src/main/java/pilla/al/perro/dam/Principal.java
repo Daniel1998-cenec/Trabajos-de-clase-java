@@ -24,8 +24,19 @@ public class Principal {
 		 * Declaro cuales van a ser las teclas de movimiento que más tarde seran
 		 * personalizables
 		 */
-		char teclaIzda = 'a';
-		char teclaDcha = 'd';
+		char teclaIzda;
+		if(args.length<1) {
+			teclaIzda = 'a';
+		}else {
+			teclaIzda= args[0].charAt(0);
+		}
+		char teclaDcha;
+		if(args.length<-1) {
+			teclaDcha = 'd';
+		}else {
+			teclaDcha= args[0].charAt(0);
+		}
+		
 		/*
 		 * Pido el tamaño del array, maximo de posiciones para moverse
 		 */

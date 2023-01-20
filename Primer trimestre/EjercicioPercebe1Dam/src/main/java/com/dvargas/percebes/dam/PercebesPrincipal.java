@@ -14,6 +14,8 @@ public class PercebesPrincipal {
  * El segundo argumento indicará el número de pisos por planta
  */
 	public static void main(String[] args) {
+		//paso 2: Traerse la declaración de todas las variables que puedan coger su valor de argumentos al principio del programa,
+		//e inicializarlas a valores absurdos/imposibles.
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Dime cuantos bloques quieres");
 		byte nb = Byte.parseByte(sc.nextLine());
