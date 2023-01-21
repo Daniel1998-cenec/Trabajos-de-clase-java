@@ -25,18 +25,18 @@ public class Principal {
 		 * personalizables
 		 */
 		char teclaIzda;
-		if(args.length<1) {
+		if (args.length < 1) {
 			teclaIzda = 'a';
-		}else {
-			teclaIzda= args[0].charAt(0);
+		} else {
+			teclaIzda = args[0].charAt(0);
 		}
 		char teclaDcha;
-		if(args.length<-1) {
+		if (args.length < 2) {
 			teclaDcha = 'd';
-		}else {
-			teclaDcha= args[0].charAt(0);
+		} else {
+			teclaDcha = args[1].charAt(0);
 		}
-		
+
 		/*
 		 * Pido el tamaño del array, maximo de posiciones para moverse
 		 */
@@ -49,7 +49,7 @@ public class Principal {
 		char[] tumba = Funciones.creaTablero(tamanio);
 		byte posPelona = Funciones.colocaAleatoriamente(tablero, '☠');
 		byte posPersona = Funciones.colocaAleatoriamente(tablero, '☯');
-		System.out.println(Funciones.imprimeArrayBonico(tablero,tumba));
+		System.out.println(Funciones.imprimeArrayBonico(tablero, tumba));
 		/*
 		 * Bucle de juego, que acaba cuando mate a todos los yinyang que me haya puesto
 		 * como objetivo
@@ -101,7 +101,7 @@ public class Principal {
 
 			if (posPelona == posPersona) {
 				muerteConseguida++;
-				tumba[posPersona]='☗';
+				tumba[posPersona] = '☗';
 				if (muerteConseguida == objetivoMuerte) {
 					break;
 				}
@@ -109,13 +109,12 @@ public class Principal {
 			}
 			// Tercera parte del bucle del juego: Dibujar sieguiente frame
 			System.out.println("Muertes conseguidas: " + muerteConseguida);
-			System.out.println(Funciones.imprimeArrayBonico(tablero,tumba));
+			System.out.println(Funciones.imprimeArrayBonico(tablero, tumba));
 
-			
 		}
 		// Final de partida, imprimir resumen
-					System.out.println("☗☗☗☗☗☗☗☗ wuahahaahahahaha ☗☗☗☗☗☗☗☗☗");
-					System.out.println("Has cosechado " + muerteConseguida + "  almas.. ");
-					System.out.println("Has tardado " + nTurno + " turnos, en un tablero de tamaño " + tablero.length);
+		System.out.println("☗☗☗☗☗☗☗☗ wuahahaahahahaha ☗☗☗☗☗☗☗☗☗");
+		System.out.println("Has cosechado " + muerteConseguida + "  almas.. ");
+		System.out.println("Has tardado " + nTurno + " turnos, en un tablero de tamaño " + tablero.length);
 	}
 }
