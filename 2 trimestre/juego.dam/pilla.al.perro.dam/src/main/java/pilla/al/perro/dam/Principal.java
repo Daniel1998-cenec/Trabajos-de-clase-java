@@ -1,6 +1,7 @@
 package pilla.al.perro.dam;
 
 import java.util.Scanner;
+import java.util.Random;
 
 public class Principal {
 
@@ -23,8 +24,19 @@ public class Principal {
 		 * Declaro cuales van a ser las teclas de movimiento que más tarde seran
 		 * personalizables
 		 */
-		char teclaIzda = 'a';
-		char teclaDcha = 'd';
+		char teclaIzda;
+		if (args.length < 1) {
+			teclaIzda = 'a';
+		} else {
+			teclaIzda = args[0].charAt(0);
+		}
+		char teclaDcha;
+		if (args.length < 2) {
+			teclaDcha = 'd';
+		} else {
+			teclaDcha = args[1].charAt(0);
+		}
+
 		/*
 		 * Pido el tamaño del array, maximo de posiciones para moverse
 		 */
@@ -34,9 +46,10 @@ public class Principal {
 		 * primer candidato a fiambre ☯.
 		 */
 		char[] tablero = Funciones.creaTablero(tamanio);
+		char[] tumba = Funciones.creaTablero(tamanio);
 		byte posPelona = Funciones.colocaAleatoriamente(tablero, '☠');
 		byte posPersona = Funciones.colocaAleatoriamente(tablero, '☯');
-		System.out.println(Funciones.imprimeArrayBonico(tablero));
+		System.out.println(Funciones.imprimeArrayBonico(tablero, tumba));
 		/*
 		 * Bucle de juego, que acaba cuando mate a todos los yinyang que me haya puesto
 		 * como objetivo
@@ -49,49 +62,46 @@ public class Principal {
 			char teclaPulsada = sc.nextLine().charAt(0);
 			// Segunda parte del bucle de juego: Mover y calcular consecuencias
 			// Primero, antes de hacer el cambio borro al personaje de su sitio
-			
+
 			/*
-			 * objetivo ejercicio 19 de enero:
-			 * Todo lo que está en este ámbito, trasladarlo
+			 * objetivo ejercicio 19 de enero: Todo lo que está en este ámbito, trasladarlo
 			 * a una funcion, llamada moverElemento, devolverá la nueva posición del
 			 * elemento tras moverlo. Por argumentos va a recibir el tablero, el char con el
-			 * símbolo que va a mover, -1 izquierda y 1 derecha y la posicion actual del símbolo
-			 * a mover Por ejemplo, si queremos que la pelona se mueva a la derecha, 
-			 * la llamada a la funcion desde el main debería ser: 
+			 * símbolo que va a mover, -1 izquierda y 1 derecha y la posicion actual del
+			 * símbolo a mover Por ejemplo, si queremos que la pelona se mueva a la derecha,
+			 * la llamada a la funcion desde el main debería ser:
 			 * posPelona=Funciones.moverElemento(tablero,'☠',1 posPelona);
 			 */
-			/*{
-				tablero[posPelona] = '_';
-				// En segundo lugar, cambio la posicion de la pelona
-				if (teclaPulsada == teclaIzda) {
-					if (posPelona != 0) {
-						posPelona--;
-					} else {// Tratamiento especial para el caso extremo
-						posPelona = (byte) (tablero.length - 1);
-					}
+			/*
+			 * { tablero[posPelona] = '_'; // En segundo lugar, cambio la posicion de la
+			 * pelona if (teclaPulsada == teclaIzda) { if (posPelona != 0) { posPelona--; }
+			 * else {// Tratamiento especial para el caso extremo posPelona = (byte)
+			 * (tablero.length - 1); } } if (teclaPulsada == teclaDcha) { if (posPelona !=
+			 * tablero.length - 1) { posPelona++; } else {// Tratamiento especial para el
+			 * caso extremo posPelona = 0; }
+			 * 
+			 * } // Por último, pinto a la pelona en su nueva posición tablero[posPelona] =
+			 * '☠'; }
+			 */
+			if (teclaPulsada == teclaDcha) {
+				posPelona = Funciones.moverElemento(tablero, '☠', (byte) 1, posPelona);
+			} else if (teclaPulsada == teclaIzda) {
+				posPelona = Funciones.moverElemento(tablero, '☠', (byte) -1, posPelona);
+			}
+			if (posPersona != posPelona) {
+				Random r = new Random();
+				posPersona = Funciones.moverElemento(tablero, '☯', (byte) (r.nextBoolean() ? -1 : 1), posPersona);
+				if (posPersona == posPelona) {
+					tablero[posPelona] = '☠';
 				}
-				if (teclaPulsada == teclaDcha) {
-					if (posPelona != tablero.length - 1) {
-						posPelona++;
-					} else {// Tratamiento especial para el caso extremo
-						posPelona = 0;
-					}
-
-				}
-				// Por último, pinto a la pelona en su nueva posición
-				tablero[posPelona] = '☠';
-			}*/ 
-			if(teclaPulsada == teclaDcha) {
-			posPelona=Funciones.moverElemento(tablero, '☠', (byte)1, posPelona);
-			}else if (teclaPulsada == teclaIzda) {
-			posPelona=Funciones.moverElemento(tablero, '☠', (byte)-1, posPelona);
 			}
 			/*
 			 * Si la posicion de la pelona es la misma que la del yinyang, cuento una muerte
 			 */
-			
+
 			if (posPelona == posPersona) {
 				muerteConseguida++;
+				tumba[posPersona] = '☗';
 				if (muerteConseguida == objetivoMuerte) {
 					break;
 				}
@@ -99,12 +109,12 @@ public class Principal {
 			}
 			// Tercera parte del bucle del juego: Dibujar sieguiente frame
 			System.out.println("Muertes conseguidas: " + muerteConseguida);
-			System.out.println(Funciones.imprimeArrayBonico(tablero));
+			System.out.println(Funciones.imprimeArrayBonico(tablero, tumba));
+
 		}
 		// Final de partida, imprimir resumen
 		System.out.println("☗☗☗☗☗☗☗☗ wuahahaahahahaha ☗☗☗☗☗☗☗☗☗");
 		System.out.println("Has cosechado " + muerteConseguida + "  almas.. ");
 		System.out.println("Has tardado " + nTurno + " turnos, en un tablero de tamaño " + tablero.length);
 	}
-
 }

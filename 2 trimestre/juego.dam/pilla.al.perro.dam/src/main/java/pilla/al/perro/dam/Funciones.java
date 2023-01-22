@@ -22,13 +22,17 @@ public class Funciones {
 		return tablero;
 	}
 
-	public static String imprimeArrayBonico(char[] array) {
+	public static String imprimeArrayBonico(char[] frente, char[] fondo) {
 		String ret = "| ";
-		for (byte i = 0; i < array.length; i++) {
-			ret += array[i] + "\t";
+		for (byte i = 0; i < frente.length; i++) {
+			if (frente[i] != '_') {
+				ret += frente[i] + "\t";
+			} else {
+				ret += fondo[i] + "\t";
+			}
 		}
 		ret += "|\n  ";
-		for (byte i = 0; i < array.length; i++) {
+		for (byte i = 0; i < frente.length; i++) {
 			ret += i + "\t";
 		}
 		return ret;
@@ -43,7 +47,7 @@ public class Funciones {
 	 *                 QUE CONTENGA _
 	 * @return la posicion en la que se ha insertado el caracter
 	 */
-	
+
 	public static byte colocaAleatoriamente(char[] destino, char caracter) {
 		Random r = new Random();
 		byte posicion = (byte) r.nextInt(destino.length);
@@ -54,8 +58,8 @@ public class Funciones {
 		return posicion;
 	}
 
-	public static byte moverElemento(char[ ] tablero, char simbolo , byte direccion, byte posicionElemento) {
-		
+	public static byte moverElemento(char[] tablero, char simbolo, byte direccion, byte posicionElemento) {
+
 		tablero[posicionElemento] = '_';
 		// En segundo lugar, cambio la posicion de la pelona
 		if (direccion == -1) {
@@ -75,8 +79,7 @@ public class Funciones {
 		}
 		// Por último, pinto a la pelona en su nueva posición
 		tablero[posicionElemento] = simbolo;
-		
-		
+
 		return posicionElemento;
 	}
 }
