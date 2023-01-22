@@ -27,14 +27,23 @@ public class Principal {
 		char teclaIzda;
 		if (args.length < 1) {
 			teclaIzda = 'a';
-		} else {
+		} else {//args[0] es para establecer la tecla izquierda
 			teclaIzda = args[0].charAt(0);
 		}
 		char teclaDcha;
 		if (args.length < 2) {
 			teclaDcha = 'd';
-		} else {
+		} else {//args[1] es para establecer la tecla derecha
 			teclaDcha = args[1].charAt(0);
+		}
+		
+		for(byte i=0; i<args.length;i++) {
+			if(args[i].equals("-teclaIzda")) {
+				teclaIzda=(args[i+1]).charAt(0);
+			}
+			if(args[i].equals("-teclaDcha")) {
+				teclaDcha=(args[i+1]).charAt(0);
+			}
 		}
 
 		/*
