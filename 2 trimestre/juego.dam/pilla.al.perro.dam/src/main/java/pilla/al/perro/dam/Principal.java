@@ -58,6 +58,8 @@ public class Principal {
 		char[] tumba = Funciones.creaTablero(tamanio);
 		byte posPelona = Funciones.colocaAleatoriamente(tablero, '☠');
 		byte posPersona = Funciones.colocaAleatoriamente(tablero, '☯');
+		
+		
 		System.out.println(Funciones.imprimeArrayBonico(tablero, tumba));
 		/*
 		 * Bucle de juego, que acaba cuando mate a todos los yinyang que me haya puesto
@@ -116,6 +118,11 @@ public class Principal {
 				}
 				posPersona = Funciones.colocaAleatoriamente(tablero, '☯');
 			}
+			
+			/*if(objetivoMuerte==muerteConseguida/2) {
+				posPersona=posPelona;
+			}*/
+			
 			// Tercera parte del bucle del juego: Dibujar sieguiente frame
 			System.out.println("Muertes conseguidas: " + muerteConseguida);
 			System.out.println(Funciones.imprimeArrayBonico(tablero, tumba));
