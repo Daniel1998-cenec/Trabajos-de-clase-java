@@ -7,6 +7,7 @@ public class Principal {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		Random r = new Random();
 		System.out.println("\\\\||~~ataque de la pelona~~||//");
 		/*
 		 * Primero pedimos cuantas personas quiero matar, el juego acaba cuando se
@@ -24,25 +25,20 @@ public class Principal {
 		 * Declaro cuales van a ser las teclas de movimiento que más tarde seran
 		 * personalizables
 		 */
-		char teclaIzda;
+		char teclaIzda='_';
 		if (args.length < 1) {
 			teclaIzda = 'a';
-		} else {//args[0] es para establecer la tecla izquierda
-			teclaIzda = args[0].charAt(0);
-		}
-		char teclaDcha;
+		} 
+		char teclaDcha='_';
 		if (args.length < 2) {
 			teclaDcha = 'd';
-		} else {//args[1] es para establecer la tecla derecha
-			teclaDcha = args[1].charAt(0);
-		}
-		
-		for(byte i=0; i<args.length;i++) {
-			if(args[i].equals("-teclaIzda")) {
-				teclaIzda=(args[i+1]).charAt(0);
+		} 
+		for (byte i = 0; i < args.length; i++) {
+			if (args[i].equals("-teclaIzda")) {
+				teclaIzda = (args[i + 1]).charAt(0);
 			}
-			if(args[i].equals("-teclaDcha")) {
-				teclaDcha=(args[i+1]).charAt(0);
+			if (args[i].equals("-teclaDcha")) {
+				teclaDcha = (args[i + 1]).charAt(0);
 			}
 		}
 
@@ -58,8 +54,7 @@ public class Principal {
 		char[] tumba = Funciones.creaTablero(tamanio);
 		byte posPelona = Funciones.colocaAleatoriamente(tablero, '☠');
 		byte posPersona = Funciones.colocaAleatoriamente(tablero, '☯');
-		
-		
+
 		System.out.println(Funciones.imprimeArrayBonico(tablero, tumba));
 		/*
 		 * Bucle de juego, que acaba cuando mate a todos los yinyang que me haya puesto
@@ -94,16 +89,25 @@ public class Principal {
 			 * } // Por último, pinto a la pelona en su nueva posición tablero[posPelona] =
 			 * '☠'; }
 			 */
+
 			if (teclaPulsada == teclaDcha) {
 				posPelona = Funciones.moverElemento(tablero, '☠', (byte) 1, posPelona);
 			} else if (teclaPulsada == teclaIzda) {
 				posPelona = Funciones.moverElemento(tablero, '☠', (byte) -1, posPelona);
 			}
-			if (posPersona != posPelona) {
-				Random r = new Random();
-				posPersona = Funciones.moverElemento(tablero, '☯', (byte) (r.nextBoolean() ? -1 : 1), posPersona);
-				if (posPersona == posPelona) {
-					tablero[posPelona] = '☠';
+
+			if (muerteConseguida < objetivoMuerte / 2) {
+				if (posPersona != posPelona) {
+					posPersona = Funciones.moverElemento(tablero, '☯', (byte) (r.nextBoolean() ? -1 : 1), posPersona);
+					if (posPersona == posPelona) { // ?=entonces //:=sino
+						tablero[posPelona] = '☠';
+					}
+				}
+			}else {
+				if (teclaPulsada == teclaDcha) {
+				posPersona = Funciones.moverElemento(tablero, '☯', (byte) 1, posPersona);
+				}else if(teclaPulsada == teclaIzda) {
+				posPersona = Funciones.moverElemento(tablero, '☯', (byte) -1, posPersona);
 				}
 			}
 			/*
@@ -113,16 +117,13 @@ public class Principal {
 			if (posPelona == posPersona) {
 				muerteConseguida++;
 				tumba[posPersona] = '☗';
+				tablero [posPelona]='☠';
 				if (muerteConseguida == objetivoMuerte) {
 					break;
 				}
 				posPersona = Funciones.colocaAleatoriamente(tablero, '☯');
 			}
-			
-			/*if(objetivoMuerte==muerteConseguida/2) {
-				posPersona=posPelona;
-			}*/
-			
+
 			// Tercera parte del bucle del juego: Dibujar sieguiente frame
 			System.out.println("Muertes conseguidas: " + muerteConseguida);
 			System.out.println(Funciones.imprimeArrayBonico(tablero, tumba));
