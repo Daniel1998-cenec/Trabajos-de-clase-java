@@ -3,11 +3,25 @@ package pilla.al.perro.dam;
 import java.util.Scanner;
 import java.util.Random;
 
+/**
+ * Este proyecto trata de que el personaje "pospelona" va a matar al personaje
+ * "posPrsona."
+ * 
+ * @author Daniel César Vargas Holguín
+ */
 public class Principal {
+	/**
+	 * Este proyecto trata de que el personaje "pospelona" va a matar al personaje
+	 * "posPrsona."
+	 * 
+	 * @param args Lo usamos con un bucle for para cambiar desde argumentos la tecla
+	 *             izquierda y tecla de derecha.
+	 */
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Random r = new Random();
+		boolean tumbaEncima = false;
 		System.out.println("\\\\||~~ataque de la pelona~~||//");
 		/*
 		 * Primero pedimos cuantas personas quiero matar, el juego acaba cuando se
@@ -25,14 +39,21 @@ public class Principal {
 		 * Declaro cuales van a ser las teclas de movimiento que más tarde seran
 		 * personalizables
 		 */
-		char teclaIzda='_';
+		char teclaIzda = '_';
 		if (args.length < 1) {
 			teclaIzda = 'a';
-		} 
-		char teclaDcha='_';
+		}
+		char teclaDcha = '_';
 		if (args.length < 2) {
 			teclaDcha = 'd';
-		} 
+		}
+		/*
+		 * Con este bucle conseguimos recorrer el argumento del proyecto para asi
+		 * lograr, cambiar las letras asociadas a tecla izquierda y tecla derecha desde
+		 * propiedades-argumento en mi caso, he puesto k para izquierda y l para
+		 * derecha.
+		 * 
+		 */
 		for (byte i = 0; i < args.length; i++) {
 			if (args[i].equals("-teclaIzda")) {
 				teclaIzda = (args[i + 1]).charAt(0);
@@ -56,14 +77,17 @@ public class Principal {
 		byte posPersona = Funciones.colocaAleatoriamente(tablero, '☯');
 
 		System.out.println(Funciones.imprimeArrayBonico(tablero, tumba));
+		// Voy a utilizar la variable boolean para almacenar si el personaje está sobre
+		// una tumba
+
 		/*
 		 * Bucle de juego, que acaba cuando mate a todos los yinyang que me haya puesto
 		 * como objetivo
 		 */
+
 		for (nTurno = 0; muerteConseguida < objetivoMuerte; nTurno++) {
-			/*
-			 * Primera parte del bucle de juego: Pedir entradas
-			 */
+			// Primera parte del bucle de juego: Pedir entradas
+
 			System.out.println("¿Donde te quieres mover?(Izquierda - " + teclaIzda + "/ Derecha - " + teclaDcha + " )");
 			char teclaPulsada = sc.nextLine().charAt(0);
 			// Segunda parte del bucle de juego: Mover y calcular consecuencias
@@ -103,11 +127,11 @@ public class Principal {
 						tablero[posPelona] = '☠';
 					}
 				}
-			}else {
+			} else {
 				if (teclaPulsada == teclaDcha) {
-				posPersona = Funciones.moverElemento(tablero, '☯', (byte) 1, posPersona);
-				}else if(teclaPulsada == teclaIzda) {
-				posPersona = Funciones.moverElemento(tablero, '☯', (byte) -1, posPersona);
+					posPersona = Funciones.moverElemento(tablero, '☯', (byte) 1, posPersona);
+				} else if (teclaPulsada == teclaIzda) {
+					posPersona = Funciones.moverElemento(tablero, '☯', (byte) -1, posPersona);
 				}
 			}
 			/*
@@ -117,7 +141,7 @@ public class Principal {
 			if (posPelona == posPersona) {
 				muerteConseguida++;
 				tumba[posPersona] = '☗';
-				tablero [posPelona]='☠';
+				tablero[posPelona] = '☠';
 				if (muerteConseguida == objetivoMuerte) {
 					break;
 				}
@@ -127,8 +151,8 @@ public class Principal {
 			// Tercera parte del bucle del juego: Dibujar sieguiente frame
 			System.out.println("Muertes conseguidas: " + muerteConseguida);
 			System.out.println(Funciones.imprimeArrayBonico(tablero, tumba));
-
 		}
+
 		// Final de partida, imprimir resumen
 		System.out.println("☗☗☗☗☗☗☗☗ wuahahaahahahaha ☗☗☗☗☗☗☗☗☗");
 		System.out.println("Has cosechado " + muerteConseguida + "  almas.. ");
