@@ -115,14 +115,16 @@ public class Principal {
 			 * } // Por último, pinto a la pelona en su nueva posición tablero[posPelona] =
 			 * '☠'; }
 			 */
-
+			byte direccionMovimiento=0;
 			if (teclaPulsada == teclaDcha) {
-				posPelona = Funciones.moverElemento(tablero, '☠', (byte) 1, posPelona);
+				direccionMovimiento=1;
 			} else if (teclaPulsada == teclaIzda) {
-				posPelona = Funciones.moverElemento(tablero, '☠', (byte) -1, posPelona);
+				direccionMovimiento=-1;
 			}
+			posPelona = Funciones.moverElemento(tablero, '☠',direccionMovimiento, posPelona);
 			
-			if (tumbaEncima==false) {
+
+			if (tumbaEncima == false) {
 				if (muerteConseguida < objetivoMuerte / 2) {
 					if (posPersona != posPelona) {
 						posPersona = Funciones.moverElemento(tablero, '☯', (byte) (r.nextBoolean() ? -1 : 1),
@@ -132,17 +134,18 @@ public class Principal {
 						}
 					}
 				} else {
-					if (teclaPulsada == teclaDcha) {
-						posPersona = Funciones.moverElemento(tablero, '☯', (byte) 1, posPersona);
-					} else if (teclaPulsada == teclaIzda) {
-						posPersona = Funciones.moverElemento(tablero, '☯', (byte) -1, posPersona);
+					if (posPersona != posPelona) {
+							posPersona = Funciones.moverElemento(tablero, '☯', direccionMovimiento, posPersona);
+						if (posPersona == posPelona) { // ?=entonces //:=sino
+							tablero[posPelona] = '☠';
+						}
 					}
 				}
-			}else {
-				tumbaEncima=false;
-			}
-			if (tumba[posPersona] == '☗') {
-				tumbaEncima = true;
+				if (tumba[posPersona] == '☗') {
+					tumbaEncima = true;
+				}
+			} else {
+				tumbaEncima = false;
 			}
 
 			// Si la posicion de la pelona es la misma que la del yinyang, cuento una muerte
