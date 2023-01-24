@@ -71,6 +71,7 @@ public class Principal {
 		 * Creo el tablero, y coloco aleatoriamente a la muerte (nuestro personaje) y el
 		 * primer candidato a fiambre ☯.
 		 */
+
 		char[] tablero = Funciones.creaTablero(tamanio);
 		char[] tumba = Funciones.creaTablero(tamanio);
 		byte posPelona = Funciones.colocaAleatoriamente(tablero, '☠');
@@ -86,6 +87,7 @@ public class Principal {
 		 */
 
 		for (nTurno = 0; muerteConseguida < objetivoMuerte; nTurno++) {
+
 			// Primera parte del bucle de juego: Pedir entradas
 
 			System.out.println("¿Donde te quieres mover?(Izquierda - " + teclaIzda + "/ Derecha - " + teclaDcha + " )");
@@ -119,24 +121,31 @@ public class Principal {
 			} else if (teclaPulsada == teclaIzda) {
 				posPelona = Funciones.moverElemento(tablero, '☠', (byte) -1, posPelona);
 			}
-
-			if (muerteConseguida < objetivoMuerte / 2) {
-				if (posPersona != posPelona) {
-					posPersona = Funciones.moverElemento(tablero, '☯', (byte) (r.nextBoolean() ? -1 : 1), posPersona);
-					if (posPersona == posPelona) { // ?=entonces //:=sino
-						tablero[posPelona] = '☠';
+			
+			if (tumbaEncima==false) {
+				if (muerteConseguida < objetivoMuerte / 2) {
+					if (posPersona != posPelona) {
+						posPersona = Funciones.moverElemento(tablero, '☯', (byte) (r.nextBoolean() ? -1 : 1),
+								posPersona);
+						if (posPersona == posPelona) { // ?=entonces //:=sino
+							tablero[posPelona] = '☠';
+						}
+					}
+				} else {
+					if (teclaPulsada == teclaDcha) {
+						posPersona = Funciones.moverElemento(tablero, '☯', (byte) 1, posPersona);
+					} else if (teclaPulsada == teclaIzda) {
+						posPersona = Funciones.moverElemento(tablero, '☯', (byte) -1, posPersona);
 					}
 				}
-			} else {
-				if (teclaPulsada == teclaDcha) {
-					posPersona = Funciones.moverElemento(tablero, '☯', (byte) 1, posPersona);
-				} else if (teclaPulsada == teclaIzda) {
-					posPersona = Funciones.moverElemento(tablero, '☯', (byte) -1, posPersona);
-				}
+			}else {
+				tumbaEncima=false;
 			}
-			/*
-			 * Si la posicion de la pelona es la misma que la del yinyang, cuento una muerte
-			 */
+			if (tumba[posPersona] == '☗') {
+				tumbaEncima = true;
+			}
+
+			// Si la posicion de la pelona es la misma que la del yinyang, cuento una muerte
 
 			if (posPelona == posPersona) {
 				muerteConseguida++;
@@ -151,6 +160,7 @@ public class Principal {
 			// Tercera parte del bucle del juego: Dibujar sieguiente frame
 			System.out.println("Muertes conseguidas: " + muerteConseguida);
 			System.out.println(Funciones.imprimeArrayBonico(tablero, tumba));
+
 		}
 
 		// Final de partida, imprimir resumen
