@@ -24,4 +24,14 @@ public class Funcion {
 		}
 		return ret;
 	}
+
+	public static boolean insertarPalabra(char[][] matriz, String palabra, byte fil, byte col) {
+		if (col + palabra.length() - 1 < matriz[fil].length) {
+			for (byte i = 0; i < palabra.length(); i++) {
+				matriz[fil][col + i] = palabra.charAt(i);
+			}
+			return true;
+		}
+		return false;
+	}
 }
