@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Principal {
 
 	public static void main(String[] args) {
+
 		//26/01/2023
 		Scanner sc=new Scanner(System.in);
 		String nombreJugador = null;
@@ -55,13 +56,13 @@ public class Principal {
 		
 		switch(opcion) {
 		case 1:
-			funciones.jugar1D(nombreJugador, generoJugador);
+			FuncionesArrays.jugar(nombreJugador, generoJugador);
 			break;
 		case 2:
-			funciones.jugar2D(nombreJugador, generoJugador);
+			FuncionesMatrices.jugar(nombreJugador, generoJugador);
 			break;
 		case 3:
-			funciones.jugar3D(nombreJugador, generoJugador);
+			FuncionesMatrices3D.jugar(nombreJugador, generoJugador);
 			break;
 		}
 		

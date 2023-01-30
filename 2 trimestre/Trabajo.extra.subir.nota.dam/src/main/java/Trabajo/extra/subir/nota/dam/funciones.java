@@ -1,6 +1,7 @@
 package Trabajo.extra.subir.nota.dam;
 
 import java.util.Scanner;
+import java.util.Random;
 
 public class funciones {
 	
@@ -28,36 +29,5 @@ public class funciones {
 			return'a';
 		}
 		return 'i';
-	}
-	
-	public static void jugar1D (String nombreJugador, char generoJugador) {
-		byte size = 0;
-		System.out.println("Bienvenid"+terminacionGenero(generoJugador, false)+
-				" al Ataque de los Goblin en 1D");
-		Scanner sc=new Scanner(System.in);
-		do {
-		System.out.println("Dime el tamaño del tablero (1-127)");
-		byte tamaño=Byte.parseByte(sc.nextLine());
-		}while(!(size <= 127 || size > 0));
-	}
-	public static void jugar2D (String nombreJugador, char generoJugador) {
-		byte size=0;
-		Scanner sc=new Scanner (System.in);
-		System.out.println("Bienvenid"+terminacionGenero(generoJugador, false)+
-				" al Ataque de los Goblin en 2D");
-		do {
-			System.out.println("Dime el tamaño del tablero (1-127)");
-			byte tamaño=Byte.parseByte(sc.nextLine());
-			}while(!(size <= 127 || size > 0));
-	}
-	public static void jugar3D (String nombreJugador, char generoJugador) {
-		byte size=0;
-		Scanner sc=new Scanner (System.in);
-		System.out.println("Bienvenid"+terminacionGenero(generoJugador, false)+
-				" al Ataque de los Goblin en 3D");
-		do {
-			System.out.println("Dime el tamaño del tablero (1-127)");
-			byte tamaño=Byte.parseByte(sc.nextLine());
-			}while(!(size <= 127 || size > 0));
-	}
+	}		
 }
