@@ -45,9 +45,12 @@ public class FuncionesMatrices {
 		//Haz que esta fila y columna escogida aleatoriamente tenga que contener por fuerza
 		//🏻. Si contiene otra cosa, volver a sortear tanto fila como columna.
 		Random r=new Random();
-		byte fila=(byte)(r.nextInt(matriz.length));
-		byte columna=(byte)(r.nextInt(matriz[fila].length));
-		
+		byte fila;
+		byte columna;
+		do {
+			fila=(byte)(r.nextInt(matriz.length));
+			columna=(byte)(r.nextInt(matriz[fila].length));
+		}while(!matriz[fila][columna].equals("🏻"));
 		matriz[fila][columna]=elemento;
 		return fila+","+columna;
 	}
