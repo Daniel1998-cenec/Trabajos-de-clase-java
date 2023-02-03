@@ -1,0 +1,147 @@
+Como pasar un bucle a una funcion recursiva
+
+Da igual que sea un bucle for, while o do..while. Los pasos son siempre los mismos pasos, 
+solo cambia que los while y do..while no tienen iterador, y se salta el paso 1:
+
+1. Pasar por argumentos el contador (iterador)
+2. Pasar cualquier otra variable que intervenga en la condición de parada por argumento
+3. Normalmente (depende del programa) se pone el cuerpo del bucle lo primero
+4. La condición para distinguir entre caso base y caso recursivo es la misma que la condición de parada del bucle
+5. Donde la condición de parada da true, se hace la llamada recursiva, sumando 1 al iterador
+6. Donde la condición de parada no se cumple, si es necesario se hace algo.
+7. En la llamada, el argumento se inicializa al mismo número al que se inicializa el iterador en el bucle
+
+.split() es un método de la clase String se utiliza para dividir 
+una cadena de texto en un arreglo de subcadenas basadas en un separador específico. Por ejemplo:
+
+	String s = "apple,banana,cherry";
+	String[] fruits = s.split(",");
+	for (String fruit : fruits) {
+  	System.out.println(fruit);
+	}
+
+	apple
+	banana
+	cherry
+
+.trim() es un método de la clase String que se utiliza para quitar 
+los espacios en blanco al inicio y al final de una cadena de texto.
+
+nombreCompeticion=sc.nextLine().trim();
+
+.startsWith() es un método en Java que se puede usar en una cadena de texto (String) para determinar 
+si la cadena comienza con una determinada secuencia de caracteres.
+
+nombreCompeticion.startsWith("Vuelta ");
+
+.replace() es un método en Java que se puede usar en una cadena de texto (String) para reemplazar 
+una secuencia de caracteres por otra en la cadena.
+
+nombreCompeticion.replace("a", "A");
+
+.toUpperCase() es un método en Java que se utiliza para convertir todos los caracteres de una cadena a mayúsculas.
+
+.contains es un método en Java que se utiliza para verificar si una cadena contiene una subcadena específica. 
+Devuelve un valor booleano, es decir, true si la cadena contiene la subcadena y false en caso contrario.
+
+Ejemplo:
+
+String frase = "Hola mundo";
+System.out.println(frase.contains("mundo"));
+En este ejemplo, la salida sería: true.
+Otro ejemplo: 
+
+String frase = "Hola mundo";
+System.out.println(frase.contains("HOLA"));
+En este ejemplo, la salida sería: false
+
+.length es un atributo de un arreglo que indica la cantidad de elementos que contiene. 
+Por ejemplo, si tienes un arreglo llamado miArreglo, puedes usar miArreglo.length 
+para obtener la longitud del arreglo. 
+Esta información puede ser útil en un bucle for para iterar sobre cada elemento del arreglo.
+
+¿Como se inicia un array?
+
+Hay varias formas de inicializar un array en Java:
+
+1. Inicialización mediante una lista de valores:
+
+int[] numeros = {1, 2, 3, 4, 5};
+
+2. Inicialización mediante un bucle y la asignación de valores a cada elemento:
+
+int[] numeros = new int[5];
+for (int i = 0; i < numeros.length; i++) {
+    numeros[i] = i * 2;
+}
+
+3. Inicialización mediante una lista de valores y un bucle:
+
+int[] numeros = {1, 2, 3, 4, 5};
+for (int num : numeros) {
+    System.out.println(num);
+}
+
+
+
+¿Como se inicia un array con string?
+
+1. Inicialización mediante una lista de valores:
+
+String[] frutas = {"manzana", "banano", "pera"};
+
+2. Inicialización mediante un bucle y la asignación de valores a cada elemento:
+
+String[] frutas = new String[3];
+frutas[0] = "manzana";
+frutas[1] = "banano";
+frutas[2] = "pera";
+
+3. Inicialización mediante una lista de valores y un bucle:
+
+String[] frutas = {"manzana", "banano", "pera"};
+for (String fruta : frutas) {
+    System.out.println(fruta);
+}
+
+Cuando el usuario tiene que escribir en la consola cuando se trate de array es:
+
+short numEtapas[]=new short[Short.parseShort(sc.nextLine())];
+String[] nombresEtapas = new String[Integer.parseInt(sc.nextLine())];
+char[] caracteres = new char[Integer.parseInt(sc.nextLine())];
+
+¿Que es un bucle for each?
+
+El bucle for each es una estructura de control en Java 
+que permite iterar sobre una colección de elementos, 
+como por ejemplo un array o una lista.
+
+Su estructura:
+
+for (tipo de variable: array) {
+}
+
+Ejemplo:
+
+String[] frutas = {"manzana", "banano", "pera"};
+for (String fruta : frutas) {
+    System.out.println(fruta);
+}
+
+
+¿Como se inicia un Random?
+
+Random r=new Random();
+
+for(short i=0;i<numEtapas.length;i++) {
+numEtapas[i]=(short) r.nextInt(80,201);
+}
+
+
+
+
+
+
+
+
+
