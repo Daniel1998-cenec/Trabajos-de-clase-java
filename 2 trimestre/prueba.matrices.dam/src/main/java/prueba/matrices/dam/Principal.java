@@ -64,7 +64,6 @@ public class Principal {
 			} while (!pudeInsertar);
 		}
 		System.out.println(Funcion.imprimeMatriz(matriz));
-
 		//for que recorre el array de palabraAqui que imprime cada posicion es false es f 
 		//si es true es t.
 		
