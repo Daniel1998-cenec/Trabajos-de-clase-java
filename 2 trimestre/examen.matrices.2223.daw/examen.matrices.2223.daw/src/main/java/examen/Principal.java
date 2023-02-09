@@ -45,6 +45,7 @@ public class Principal {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			
 			for(byte j=0;j<iconosAula.length;j++) {
 				System.out.println("\r");
 			}
