@@ -51,6 +51,7 @@ public class Sim {
 	 */
 	public Perro[] perros;
 	
+	public Gato[] gatos;
 	//Métodos: Lo que las personas saben hacer
 	/**
 	 * funcion que resta 20 de hambrea del sim que llame
@@ -64,12 +65,27 @@ public class Sim {
 	 */
 	public String toString() {
 		String ret="";
+		
 		ret+=this.nombre+" "+this.apellido+" ("+
-		(genero=='h'?"Hombre":genero=='m'?"Mujer":"Género Neutro")+
-		")\n\tHambre:"+this.hambre+
-		"\n\tSueño:"+this.sueño+
-		"\n\tSuciedad:"+this.suciedad+
-		"\n\tAburrimiento:"+this.aburrimiento;
+				(genero=='h'?"Hombre":genero=='m'?"Mujer":"Género Neutro")+
+				")\n\tHambre:"+this.hambre+
+				"\n\tSueño:"+this.sueño+
+				"\n\tSuciedad:"+this.suciedad+
+				"\n\tAburrimiento:"+this.aburrimiento+"\n";
+		
+		if(perros!=null) {
+			for(byte i=0;i<perros.length;i++) {
+				ret+= this.perros[i]+" ";
+				
+			}
+		}
+		ret+="\n";
+		if(gatos!=null) {
+			for (byte i=0;i<gatos.length;i++) {
+				ret+= this.gatos[i]+" ";
+			}
+		}
+		
 		
 		return ret;
 	}
