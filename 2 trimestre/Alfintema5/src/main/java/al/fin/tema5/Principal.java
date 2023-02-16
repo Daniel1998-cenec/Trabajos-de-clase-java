@@ -13,46 +13,19 @@ public class Principal {
 		Scanner sc=new Scanner(System.in);
 		Random r=new Random();
 		
-		Sim pepe=new Sim();
-		pepe.nombre="Pepe";
-		pepe.apellido="Tardo";
-		pepe.genero='h';
-		pepe.hambre=50;
-		pepe.sueño=50;
-		pepe.aburrimiento=50;
-		pepe.suciedad=50;
+		Sim pepe=new Sim("Pepe","Tardo",'h',(byte)50,(byte)50,(byte)50,(byte)50,
+				null,null,null,null);
 		
-		Sim eufrasio=new Sim();
-		eufrasio.nombre="Eufrasio";
-		eufrasio.genero='h';
-		eufrasio.hambre=50;
-		eufrasio.sueño=50;
-		eufrasio.aburrimiento=50;
-		eufrasio.suciedad=50;
+		Sim eufrasio=new Sim("Eufrasio","Buhero",'h');
 		
 		pepe.comer();
-		eufrasio.padre=pepe;
 		
-		Sim elvira=new Sim();
-		elvira.nombre="elvira";
-		elvira.apellido="lápida";
-		elvira.genero='m';
-		elvira.hambre=50;
-		elvira.sueño=50;
-		elvira.aburrimiento=50;
-		elvira.suciedad=50;
+		Sim elvira=new Sim("elvira","lápida",'m',null,pepe);
 		
-		pepe.madre=elvira;
+		Perro sputnik=new Perro("sputnik","Chucho","Multicolor",'h',pepe);
 		
-		Perro sputnik=new Perro();
-		sputnik.nombre="sputnik";
-		sputnik.genero='h';
-		sputnik.raza="Chucho";
-		sputnik.pelaje="Multicolor";
-		sputnik.hambre=50;
-		sputnik.sueño=50;
-		sputnik.aburrimiento=50;
-		sputnik.suciedad=50;
+		sputnik.setDueño(elvira);
+		sputnik.setNombre("Soyuz");
 		
 		/**
 		 * elvira.perros=new Perro[] { sputnik };
@@ -61,15 +34,7 @@ public class Principal {
 		elvira.perros[0]=sputnik;
 		sputnik.dueño=elvira;
 		
-		Gato rubi=new Gato();
-		rubi.nombre="rubi";
-		rubi.genero='m';
-		rubi.raza="Gatuno";
-		rubi.hambre=50;
-		rubi.sueño=50;
-		rubi.aburrimiento=50;
-		rubi.suciedad=50;
-		rubi.tendenciaAlCaos=50;
+		Gato rubi=new Gato("rubi","Gatuno",'m',elvira);
 		
 		pepe.gatos=new Gato [1];
 		pepe.gatos[0]=rubi;
