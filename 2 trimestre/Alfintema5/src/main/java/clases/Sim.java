@@ -58,10 +58,10 @@ public class Sim {
 			byte sueño, byte suciedad, byte aburrimiento, Sim padre, Sim madre,
 			Perro[] perros, Gato[] gatos) {
 		
-		this.nombre=nombre;
+		this.setNombre(nombre);
 		this.apellido=apellido;
 		this.genero=genero;
-		this.hambre=hambre;
+		this.setHambre(hambre);
 		this.sueño=sueño;
 		this.suciedad=suciedad;
 		this.aburrimiento=aburrimiento;
@@ -72,7 +72,7 @@ public class Sim {
 	}
 	
 	public Sim(String nombre, String apellido, char genero) {
-		this.nombre=nombre;
+		this.setNombre(nombre);
 		this.apellido=apellido;
 		this.genero=genero;
 		this.hambre=50;
@@ -86,7 +86,7 @@ public class Sim {
 	}
 	
 	public Sim(String nombre, String apellido, char genero, Sim madre, Sim padre) {
-		this.nombre=nombre;
+		this.setNombre(nombre);
 		this.apellido=apellido;
 		this.genero=genero;
 		this.hambre=50;
@@ -104,7 +104,19 @@ public class Sim {
 	}
 
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		String[] numeros={"0","1","2","3","4","5","6","7","8","9"};
+		boolean tieneNumeros=false;
+		for(byte i=0;i<numeros.length;i++) {
+			if(nombre.contains(numeros[i])) {
+				tieneNumeros=true;
+				break;
+			}
+		}
+		if(!tieneNumeros) {
+			this.nombre = nombre;
+		}else {
+			System.out.println("Es una chapuza decirtelo aquí, pero no me metas númros en el nombre");
+		}
 	}
 
 	public String getApellido() {
@@ -128,7 +140,13 @@ public class Sim {
 	}
 
 	public void setHambre(byte hambre) {
-		this.hambre = hambre;
+		if(hambre<0) {
+			this.hambre=0;
+		}else if(hambre>100) {
+			this.hambre=100;
+		}else {
+			this.hambre=hambre;
+		}
 	}
 
 	public byte getSueño() {
@@ -192,7 +210,7 @@ public class Sim {
 	 * funcion que resta 20 de hambrea del sim que llame
 	 */
 	public void comer() {
-		this.hambre-=20;
+		this.setHambre((byte)(this.getHambre()-20));
 	}
 	/**
 	 * funcion que imprime formateados todos los datos de un sim
