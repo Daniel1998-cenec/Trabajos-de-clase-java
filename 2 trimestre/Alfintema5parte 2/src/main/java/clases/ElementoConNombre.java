@@ -1,9 +1,10 @@
 package clases;
 
 public class ElementoConNombre {
-	private String nombre;
 	
-	//constructor
+	private String nombre;
+
+	// constructor
 	public ElementoConNombre(String nombre) {
 		this.nombre = nombre;
 	}
@@ -19,6 +20,5 @@ public class ElementoConNombre {
 	public String toString() {
 		return this.nombre;
 	}
-	
-	
+
 }
