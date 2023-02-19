@@ -56,9 +56,17 @@ public class SerVivo extends ElementoConNombre {
 	public void setSuciedad(byte suciedad) {
 		this.suciedad = suciedad;
 	}
+	
+	//Métodos: Lo que las personas saben hacer
+	/**
+	* funcion que resta 20 de hambrea del sim que llame
+	*/
+	public void comer() {
+		this.setHambre((byte)(this.getHambre()-20));
+	}
 
 	public String toString() {
-		return super.toString()+this.genero + genero + "\n\thambre=" + hambre + "\n\tsueño=" + sueño + "\n\taburrimiento="
+		return super.toString()+"genero" + genero + "\n\thambre=" + hambre + "\n\tsueño=" + sueño + "\n\taburrimiento="
 				+ aburrimiento + "\n\tsuciedad=" + suciedad;
 	}
 	

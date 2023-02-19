@@ -26,7 +26,6 @@ public class Comida extends ElementoConNombre {
 	}
 
 	public String toString() {
-		//tampoco lo entiendo
 		return super.toString() + " | valor nutritivo: " + this.valorNutritivo;
 	}
 }
