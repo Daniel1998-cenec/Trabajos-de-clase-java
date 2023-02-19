@@ -23,7 +23,7 @@ public Animal[] getAnimales() {
 public void setAnimales(Animal[] animales) {
 	this.animales = animales;
 }
-@Override
+
 public String toString() {
 	return "Mundo [sims=" + Arrays.toString(sims) + ", animales=" + Arrays.toString(animales) + "]";
 }

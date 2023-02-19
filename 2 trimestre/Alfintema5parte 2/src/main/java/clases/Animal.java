@@ -16,7 +16,6 @@ public class Animal extends SerVivo {
 		this.raza = raza;
 	}
 
-	@Override
 	public String toString() {
 		return super.toString()+"\n\traza="+raza;
 	}
