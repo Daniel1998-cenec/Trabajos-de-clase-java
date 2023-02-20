@@ -18,7 +18,7 @@ public class ElementoConNombre {
 	}
 
 	public String toString() {
-		return this.nombre+" ";
+		return "\t"+this.nombre+" ";
 	}
 
 }

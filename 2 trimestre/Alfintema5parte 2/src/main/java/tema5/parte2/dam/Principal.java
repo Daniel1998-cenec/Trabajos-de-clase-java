@@ -10,6 +10,7 @@ public class Principal {
 		
 		Perro rubi=new Perro ("Rubi",'h',(byte)50,(byte)50,(byte)50,(byte)50,"canina",
 				"liso","Dani");
+		System.out.println(rubi);
 	}
 
 }

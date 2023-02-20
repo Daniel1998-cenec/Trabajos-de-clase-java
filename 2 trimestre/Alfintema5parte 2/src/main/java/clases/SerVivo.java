@@ -66,7 +66,7 @@ public class SerVivo extends ElementoConNombre {
 	}
 
 	public String toString() {
-		return super.toString()+"genero" + genero + "\n\thambre=" + hambre + "\n\tsueño=" + sueño + "\n\taburrimiento="
+		return super.toString()+"\n\tgenero " + genero + "\n\thambre=" + hambre + "\n\tsueño=" + sueño + "\n\taburrimiento="
 				+ aburrimiento + "\n\tsuciedad=" + suciedad;
 	}
 	

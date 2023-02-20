@@ -25,7 +25,7 @@ public void setAnimales(Animal[] animales) {
 }
 
 public String toString() {
-	return "Mundo [sims=" + Arrays.toString(sims) + ", animales=" + Arrays.toString(animales) + "]";
+	return "\n\tmundo - sims=" + Arrays.toString(sims) + "\n\tanimales=" + Arrays.toString(animales);
 }
 
 
