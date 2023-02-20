@@ -4,8 +4,8 @@ public class Gato extends AnimalDomestico {
 private byte tendenciaAlCaos;
 
 public Gato(String nombre, char genero, byte hambre, byte sueño, byte aburrimiento, byte suciedad,byte tendenciaAlCaos, String raza,
-		String pelaje, String dueño ) {
-	super(nombre, genero, hambre, sueño, aburrimiento, suciedad, raza, pelaje, dueño);
+		String pelaje, Sim dueño ) {
+	super(nombre, genero, hambre, sueño, aburrimiento, suciedad, raza, pelaje,dueño);
 	this.tendenciaAlCaos = tendenciaAlCaos;
 }
 

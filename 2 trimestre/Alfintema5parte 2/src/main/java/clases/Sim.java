@@ -18,7 +18,7 @@ public void setApellidos(String apellidos) {
 }
 
 public String toString() {
-	return super.toString()+"\tapellidos=" + apellidos;
+	return super.toString()+"\n\tapellidos=" + apellidos;
 }
 
 

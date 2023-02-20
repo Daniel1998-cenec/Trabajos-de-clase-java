@@ -1,11 +1,11 @@
 package clases;
 
-public class AnimalDomestico extends Animal {
+public abstract class AnimalDomestico extends Animal {
 	private String pelaje;
-	private String dueño;
+	private Sim dueño;
 	
 	public AnimalDomestico(String nombre, char genero, byte hambre, byte sueño, byte aburrimiento, byte suciedad,
-			String raza, String pelaje, String dueño) {
+			String raza, String pelaje, Sim dueño) {
 		super(nombre, genero, hambre, sueño, aburrimiento, suciedad, raza);
 		this.pelaje = pelaje;
 		this.dueño = dueño;
@@ -19,17 +19,17 @@ public class AnimalDomestico extends Animal {
 		this.pelaje = pelaje;
 	}
 
-	public String getDueño() {
+	public Sim getDueño() {
 		return dueño;
 	}
 
-	public void setDueño(String dueño) {
+	public void setDueño(Sim dueño) {
 		this.dueño = dueño;
 	}
 
 	
 	public String toString() {
-		return super.toString()+"\n\tpelaje=" + pelaje + "\n\tdueño=" + dueño;
+		return super.toString()+"\n\tpelaje=" + pelaje + "\n\tdueño="+ dueño.getNombre()+" "+dueño.getApellidos();
 	}
 	
 	

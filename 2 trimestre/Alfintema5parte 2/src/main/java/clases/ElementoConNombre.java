@@ -1,6 +1,6 @@
 package clases;
 
-public class ElementoConNombre {
+public abstract class ElementoConNombre {
 	
 	private String nombre;
 
@@ -18,7 +18,7 @@ public class ElementoConNombre {
 	}
 
 	public String toString() {
-		return "\t"+this.nombre+" ";
+		return this.nombre;
 	}
 
 }

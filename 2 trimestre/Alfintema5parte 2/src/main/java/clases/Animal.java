@@ -1,6 +1,6 @@
 package clases;
 
-public class Animal extends SerVivo {
+public abstract class Animal extends SerVivo {
 	private String raza;
 
 	public Animal(String nombre, char genero, byte hambre, byte sueño, byte aburrimiento, byte suciedad, String raza) {

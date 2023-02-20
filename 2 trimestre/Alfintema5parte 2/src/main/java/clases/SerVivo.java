@@ -1,6 +1,6 @@
 package clases;
 
-public class SerVivo extends ElementoConNombre {
+public abstract class SerVivo extends ElementoConNombre {
 
 	private char genero;
 	private byte hambre;
@@ -11,7 +11,7 @@ public class SerVivo extends ElementoConNombre {
 	public SerVivo(String nombre,char genero, byte hambre, byte sueño, byte aburrimiento, byte suciedad) {
 		super(nombre);
 		this.genero = genero;
-		this.hambre = hambre;
+		this.setHambre(hambre);
 		this.sueño = sueño;
 		this.aburrimiento = aburrimiento;
 		this.suciedad = suciedad;
@@ -30,7 +30,14 @@ public class SerVivo extends ElementoConNombre {
 	}
 
 	public void setHambre(byte hambre) {
-		this.hambre = hambre;
+		if(hambre<0) {
+			this.hambre = 0;
+		}else if (hambre>100) {
+			this.hambre=100;
+		}else {
+			this.hambre=hambre;
+		}
+		
 	}
 
 	public byte getSueño() {
@@ -61,8 +68,8 @@ public class SerVivo extends ElementoConNombre {
 	/**
 	* funcion que resta 20 de hambrea del sim que llame
 	*/
-	public void comer() {
-		this.setHambre((byte)(this.getHambre()-20));
+	public void comer(Comida c) {
+		this.setHambre((byte)(this.hambre-c.getValorNutritivo()));
 	}
 
 	public String toString() {
