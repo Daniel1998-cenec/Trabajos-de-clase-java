@@ -14,7 +14,13 @@ public class Escudo extends ElementoConNombre{
 	}
 
 	public void setProteccion(Byte proteccion) {
-		this.proteccion = proteccion;
+		if(proteccion<0) {
+			this.proteccion = 0;
+		}else if (proteccion>100) {
+			this.proteccion=100;
+		}else {
+			this.proteccion=proteccion;
+		}
 	}
 
 	

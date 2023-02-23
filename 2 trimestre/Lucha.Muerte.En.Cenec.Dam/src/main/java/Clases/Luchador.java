@@ -20,6 +20,11 @@ public class Luchador extends ElementoConNombre {
 	}
 
 	public byte getVida(byte vida) {
+		return vida;
+		
+	}
+
+	public void setVida(byte vida) {
 		if(vida<0) {
 			this.vida = 0;
 		}else if (vida>100) {
@@ -27,12 +32,6 @@ public class Luchador extends ElementoConNombre {
 		}else {
 			this.vida=vida;
 		}
-		return vida;
-		
-	}
-
-	public void setVida(byte vida) {
-		this.vida = vida;
 	}
 	
 	//método
