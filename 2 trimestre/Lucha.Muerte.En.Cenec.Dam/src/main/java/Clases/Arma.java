@@ -24,7 +24,7 @@ public class Arma extends ElementoConNombre {
 	}
 
 	public String toString() {
-		return super.toString() + "daño=" + daño;
+		return super.toString() + "\tdaño=" + daño;
 	}
 
 }

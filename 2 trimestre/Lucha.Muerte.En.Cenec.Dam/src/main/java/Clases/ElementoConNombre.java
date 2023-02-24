@@ -18,7 +18,7 @@ public void setNombre(String nombre) {
 
 
 public String toString() {
-	return nombre;
+	return nombre+"\n";
 }
 
 

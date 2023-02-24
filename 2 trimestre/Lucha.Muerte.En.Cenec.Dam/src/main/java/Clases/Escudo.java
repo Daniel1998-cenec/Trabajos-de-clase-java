@@ -25,7 +25,7 @@ public class Escudo extends ElementoConNombre{
 
 	
 	public String toString() {
-		return super.toString()+"proteccion=" + proteccion;
+		return super.toString()+"\tproteccion=" + proteccion;
 	}
 	
 	

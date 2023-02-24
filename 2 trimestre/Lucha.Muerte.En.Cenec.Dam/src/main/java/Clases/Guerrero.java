@@ -1,11 +1,13 @@
 package Clases;
 
+import java.util.Random;
+
 public class Guerrero extends Luchador {
 
 	private Escudo escudo;
 
-	public Guerrero(String nombre, Arma arma, byte vida, Escudo escudo) {
-		super(nombre, arma, vida);
+	public Guerrero(String nombre, Arma arma, Escudo escudo) {
+		super(nombre, arma);
 		this.escudo = escudo;
 	}
 
@@ -17,17 +19,15 @@ public class Guerrero extends Luchador {
 		this.escudo = escudo;
 	}
 
-	// metodo
-	
-	public void defender() {
-	}
-	
-	public void atacar() {
-	}
-
 	public String toString() {
-		return super.toString()+"escudo=" + escudo;
+		return super.toString()+"\n\tescudo=" + escudo;
 	}
 	
-	
+	public byte defender() {
+		Random r=new Random();
+		byte dañoBloqueado=(byte) r.nextInt(this.escudo.getProteccion()+1);
+		System.out.println(this.getNombre()+" bloquea con su "+this.escudo.getNombre()+
+				" "+dañoBloqueado+ "daño recibido.");
+		return dañoBloqueado;
+	}
 }

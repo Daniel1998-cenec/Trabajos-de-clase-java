@@ -1,14 +1,19 @@
 package Clases;
 
-public class Luchador extends ElementoConNombre {
+import java.util.Random;
+
+import Interfaces.AccionesLuchador;
+import Interfaces.RecibirDaño;
+
+public abstract class Luchador extends ElementoConNombre implements AccionesLuchador,RecibirDaño  {
 	
 	private Arma arma;
 	private byte vida;
 	
-	public Luchador(String nombre, Arma arma, byte vida) {
+	public Luchador(String nombre, Arma arma) {
 		super(nombre);
 		this.arma = arma;
-		this.vida = vida;
+		this.vida = 100;
 	}
 
 	public Arma getArma() {
@@ -19,34 +24,70 @@ public class Luchador extends ElementoConNombre {
 		this.arma = arma;
 	}
 
-	public byte getVida(byte vida) {
+	public byte getVida() {
 		return vida;
 		
 	}
-
-	public void setVida(byte vida) {
-		if(vida<0) {
-			this.vida = 0;
-		}else if (vida>100) {
-			this.vida=100;
-		}else {
-			this.vida=vida;
-		}
-	}
 	
 	//método
-	
-	public void defender(Escudo proteger) {
-		this.setVida((byte) (this.getVida(vida)+proteger.getProteccion()));
+	public byte atacar() {
+		Random r=new Random();
+		byte ataqueHecho=(byte)r.nextInt(0,this.arma.getDaño()+1);
+		System.out.println(this.getNombre()+" ataca con su "+this.arma.getNombre()+
+				" y hace "+ataqueHecho+" de daño.");
+		return ataqueHecho;
 	}
-	
-	public void ataque(Arma ataque) {
-		this.setVida((byte) (this.getVida(vida)+ataque.getDaño()));
+
+	public Luchador pelear(Luchador rival) {
+		while(this.vida>0&&rival.vida>0) {
+			byte defensa=0;
+			byte ataque=this.atacar();
+			
+			Luchador.espera((short)750);
+			
+			if(rival.getClass().equals(Guerrero.class)) {
+				defensa=((Guerrero)rival).defender();
+			}
+			
+			Luchador.espera((short)750);
+			
+			rival.recibirDaño((byte)(ataque-defensa));
+			defensa=0;
+			if(rival.getVida()>0) {
+				ataque=rival.atacar();
+				Luchador.espera((short)750);
+				if(this.getClass().equals(Guerrero.class)) {
+					defensa=((Guerrero)this).defender();
+				}
+				Luchador.espera((short)750);
+				this.recibirDaño((byte) (ataque-defensa));
+				Luchador.espera((short)750);
+			}
+		}
+		return (this.vida>0?this:rival);
+	}
+
+	public void recibirDaño(byte dañoRecibido) {
+		if(dañoRecibido>0) {
+			this.vida-=dañoRecibido;
+			if(this.vida<0) {
+				this.vida=0;
+			}
+			System.out.println(this.getNombre()+" recibe "+dañoRecibido+" puntos de daño,");
+		}
+		System.out.println("A "+this.getNombre()+" y le quedan "+this.vida+" puntos de vida");
 	}
 	
 	public String toString() {
 		return super.toString()+"\n\tarma="+arma+"\n\tvida="+vida;
 	}
 	
-	
+	private static void espera(short ms) {
+		try {
+			Thread.sleep(ms);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
