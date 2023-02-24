@@ -10,15 +10,14 @@ public class Tamagotchi extends CosaConNombre {
 	private Byte diversion;
 	private Byte estres;
 	
-	public Tamagotchi(String nombre, Float edad, Especies especie, Byte hambre, Byte sueño, Byte diversion,
-			Byte estres) {
+	public Tamagotchi(String nombre, Float edad, Especies especie) {
 		super(nombre);
 		this.edad = edad;
 		this.especie = especie;
-		this.hambre = hambre;
-		this.sueño = sueño;
-		this.diversion = diversion;
-		this.estres = estres;
+		this.hambre = 50;
+		this.sueño = 50;
+		this.diversion = 50;
+		this.estres = 50;
 	}
 
 	public Float getEdad() {
@@ -91,7 +90,7 @@ public class Tamagotchi extends CosaConNombre {
 		
 	}
 	public String toString() {
-		return super.toString()+"\n\tEdad: " + edad + "\n\tEspecie: " + especie + "\n\tHambre=" + hambre + "\n\tSueño: " + sueño
+		return super.toString()+"\n\tEdad: " + edad + "\n\tEspecie: " + especie + "\n\tHambre: " + hambre + "\n\tSueño: " + sueño
 				+ "\n\tDiversion: " + diversion + "\n\tEstres: " + estres;
 	}
 	

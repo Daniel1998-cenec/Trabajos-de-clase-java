@@ -6,10 +6,9 @@ public class Gato extends Tamagotchi {
 	
 	private Byte causarCaos;
 
-	public Gato(String nombre, Float edad, Especies especie, Byte hambre, Byte sueño, Byte diversion, Byte estres,
-			Byte causarCaos) {
-		super(nombre, edad, especie, hambre, sueño, diversion, estres);
-		this.causarCaos = causarCaos;
+	public Gato(String nombre, Float edad, Especies especie) {
+		super(nombre, edad, especie);
+		this.causarCaos = 50;
 	}
 
 	public Byte getCausarCaos() {
