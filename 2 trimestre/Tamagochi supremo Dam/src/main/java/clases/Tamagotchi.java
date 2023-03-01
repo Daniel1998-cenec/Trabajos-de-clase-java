@@ -1,6 +1,7 @@
 package clases;
 
 import enumeration.Especies;
+
 public class Tamagotchi extends CosaConNombre {
 
 	private Float edad;
@@ -9,10 +10,10 @@ public class Tamagotchi extends CosaConNombre {
 	private Byte sueño;
 	private Byte diversion;
 	private Byte estres;
-	
-	public Tamagotchi(String nombre, Float edad, Especies especie) {
+
+	public Tamagotchi(String nombre, Especies especie) {
 		super(nombre);
-		this.edad = edad;
+		this.edad = (float) 0;
 		this.especie = especie;
 		this.hambre = 50;
 		this.sueño = 50;
@@ -41,7 +42,13 @@ public class Tamagotchi extends CosaConNombre {
 	}
 
 	public void setHambre(Byte hambre) {
-		this.hambre = hambre;
+		if(hambre<0) {
+			this.hambre=0;
+		}else if(hambre>100) {
+			this.hambre=100;
+		}else {
+			this.hambre=hambre;
+		}
 	}
 
 	public Byte getSueño() {
@@ -49,15 +56,26 @@ public class Tamagotchi extends CosaConNombre {
 	}
 
 	public void setSueño(Byte sueño) {
-		this.sueño = sueño;
-	}
+		if(sueño<0) {
+			this.sueño=0;
+		}else if(sueño>100) {
+			this.sueño=100;
+		}else {
+			this.sueño=sueño;
+		}	}
 
 	public Byte getDiversion() {
 		return diversion;
 	}
 
 	public void setDiversion(Byte diversion) {
-		this.diversion = diversion;
+		if(diversion<0) {
+			this.diversion=0;
+		}else if(diversion>100) {
+			this.diversion=100;
+		}else {
+			this.diversion=diversion;
+		}
 	}
 
 	public Byte getEstres() {
@@ -65,34 +83,51 @@ public class Tamagotchi extends CosaConNombre {
 	}
 
 	public void setEstres(Byte estres) {
-		this.estres = estres;
+		if(estres<0) {
+			this.estres=0;
+		}else if(estres>100) {
+			this.estres=100;
+		}else {
+			this.estres=estres;
+		}
 	}
-	
-	//metodo
-	
+
+	// metodo
+
 	public void comer(Comida c) {
-		
+		this.setHambre((byte) (this.getHambre() - c.getValorEnergetico()));
+		this.setSueño((byte) (this.getSueño() - c.getMorriña()));
 	}
+
 	public void dormir() {
-		
+		this.setSueño((byte)(this.getSueño()-10));;
 	}
+
 	public void jugar(Juego j) {
-		
+		this.setDiversion((byte) (this.getDiversion() + j.getDiversion()));
+		this.setSueño((byte) (this.getSueño() - j.getEstres()));
 	}
+
 	public void relajarse() {
-		
+		this.setDiversion((byte)(this.getDiversion()-10));
 	}
+
 	public boolean estaVivo() {
-		return true;
+		if (hambre >= 100 || sueño >= 100 || diversion >= 0 || estres >= 100 || edad >= 30) {
+			return false;
+		} else {
+			return true;
+		}
 		
 	}
+
 	public void crecer() {
-		
+		edad++;
 	}
+
 	public String toString() {
-		return super.toString()+"\n\tEdad: " + edad + "\n\tEspecie: " + especie + "\n\tHambre: " + hambre + "\n\tSueño: " + sueño
-				+ "\n\tDiversion: " + diversion + "\n\tEstres: " + estres;
+		return super.toString() + "\n\tEdad: " + edad + "\n\tEspecie: " + especie + "\n\t Hambre: " + hambre
+				+ "\n\t Sueño: " + sueño + "\n\t Diversion: " + diversion + "\n\t Estres: " + estres;
 	}
-	
-	
+
 }
