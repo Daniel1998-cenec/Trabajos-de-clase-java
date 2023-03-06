@@ -107,6 +107,7 @@ public class TamagochiSupremo {
 
 			byte opcion = Byte.parseByte(scan.nextLine());
 			// ------
+			
 			switch (opcion) {
 
 			case 1:
