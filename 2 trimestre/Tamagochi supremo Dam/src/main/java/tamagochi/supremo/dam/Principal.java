@@ -1,5 +1,6 @@
 package tamagochi.supremo.dam;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import clases.Comida;
@@ -21,8 +22,35 @@ public class Principal {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		Tamagotchi animalito = new Tamagotchi(null, null);
-		Comida estofado = new Comida("estofado", (byte) 20, (byte) 5);
-		Juego peluche = new Juego("Peluche", (byte) 20, (byte) 5);
+		
+		Comida estofado = new Comida("estofado", (byte) 4, (byte) 1);
+		Comida pollo = new Comida("pollo", (byte) 7, (byte) 3);
+		Comida sopa = new Comida("sopa", (byte) 2, (byte) 8);
+		Comida pescado = new Comida("pescado", (byte) 9, (byte) 3);
+		ArrayList <Comida> comidas=new ArrayList<Comida>();
+		comidas.add(estofado);
+		comidas.add(pollo);
+		comidas.add(sopa);
+		comidas.add(pescado);
+		
+		/*for (byte i=0;i<comidas.size();i++) {
+			System.out.println("Posicion "+i+": "+comidas.get(i));
+		}*/
+		
+		/*System.out.println("Elige una de ellas al azar:");
+		Random r=new Random();
+		Comida elegida=comidas.get(r.nextInt(comidas.size()));
+		comidas.remove(elegida);
+		System.out.println(elegida);
+		System.out.println(comidas);*/
+		
+		Juego peluche = new Juego("Peluche", (byte) 5, (byte) 3);
+		ArrayList <Juego> juegos=new ArrayList<Juego>();
+		juegos.add(peluche);
+		juegos.add(new Juego("Gartiphone", (byte) 8, (byte) 4));
+		juegos.add(new Juego("LOL", (byte) -6, (byte) 10));
+		juegos.add(new Juego("Furtbol", (byte) 7, (byte) 5));
+		
 		byte opcion1 = 0;
 		byte opcion2 = 0;
 		
