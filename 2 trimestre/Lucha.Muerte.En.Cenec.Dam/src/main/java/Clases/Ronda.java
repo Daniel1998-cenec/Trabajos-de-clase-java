@@ -1,32 +1,36 @@
 package Clases;
 
 import java.util.Arrays;
-
+import java.util.ArrayList;
 public class Ronda extends ElementoConNombre {
 
-	private Combate[] combates;
-
-	public Ronda(String nombre, Combate[] combates) {
+	private ArrayList<Combate> combates;
+	
+	//1Forma
+	public Ronda(String nombre, ArrayList<Combate> combates) {
 		super(nombre);
 		this.combates = combates;
 	}
-
-	public Combate[] getCombates() {
+	//2Forma
+	public Ronda(String nombre) {
+		super(nombre);
+		this.combates = new ArrayList<Combate>();
+	}
+	
+	public ArrayList<Combate> getCombates() {
 		return combates;
 	}
 
-	public void setCombates(Combate[] combates) {
+	public void setCombates(ArrayList<Combate> combates) {
 		this.combates = combates;
 	}
-	
-	//Método
-	
-	public void jugar() {
+
+	@Override
+	public String toString() {
+		return super.toString()+"\tCombates=" + combates;
 	}
 
-	public String toString() {
-		return super.toString()+"combates=" + Arrays.toString(combates);
-	}
+	
 	
 	
 }

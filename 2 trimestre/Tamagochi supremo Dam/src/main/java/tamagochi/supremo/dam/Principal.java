@@ -2,7 +2,6 @@ package tamagochi.supremo.dam;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import clases.Comida;
 import clases.Gato;
 import clases.Juego;

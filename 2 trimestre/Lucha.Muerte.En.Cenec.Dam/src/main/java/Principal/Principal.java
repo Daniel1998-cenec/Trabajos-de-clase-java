@@ -7,8 +7,10 @@ import java.util.Scanner;
 
 import Clases.Arma;
 import Clases.Berserker;
+import Clases.Combate;
 import Clases.Escudo;
 import Clases.Luchador;
+import Clases.Ronda;
 
 public class Principal {
 
@@ -93,8 +95,22 @@ public class Principal {
 		// Guerrero daniel=new Guerrero("Daniel",armas.get(1), escudos.get(0));
 		//guerrero.recibirDaño(guerrero.atacar());  //Prueba quitarme vida.
 		
-		Luchador ganador = guerrero.pelear(bersie);
-		System.out.println("Ganador: " + ganador);
+		Combate c1=new Combate(bersie,guerrero);
+		Combate c2=new Combate(guerrero,bersie);
+		
+		//1Forma
+		
+		/*ArrayList<Combate>combates=new ArrayList<Combate>();
+		combates.add(c1);
+		combates.add(c2);
+		Ronda r1=new Ronda("Ronda 1", combates);
+		System.out.println(c1.combatir());*/
+		
+		//2forma
+		
+		Ronda r1=new Ronda("Ronda 1");
+		r1.getCombates().add(c1);
+		r1.getCombates().add(c2);
 	}
 
 }

@@ -1,16 +1,17 @@
 package Clases;
 
+import java.util.Random;
+
 public class Combate {
-	
+
 	private Luchador luchador1;
 	private Luchador luchador2;
 	private int turno;
-	
-	public Combate(Luchador luchador1, Luchador luchador2, int turno) {
+
+	public Combate(Luchador luchador1, Luchador luchador2) {
 		super();
 		this.luchador1 = luchador1;
 		this.luchador2 = luchador2;
-		this.turno = turno;
 	}
 
 	public Luchador getLuchador1() {
@@ -36,15 +37,25 @@ public class Combate {
 	public void setTurno(int turno) {
 		this.turno = turno;
 	}
-	
-	//Metodo
-	
+
+	// Metodo
+
 	public void iniciar() {
+	}
+
+	public Luchador combatir() {
+		Luchador ganador;
+		
+		if(new Random().nextBoolean()) {
+			ganador=luchador1.pelear(luchador2);
+		}else {
+			ganador=luchador2.pelear(luchador1);
+		}
+		return ganador;
 	}
 
 	public String toString() {
 		return "\n\tluchador1=" + luchador1 + "\n\tluchador2=" + luchador2 + "\n\tturno=" + turno;
 	}
-	
-	
+
 }
